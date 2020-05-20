@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>ProBodega</title>
+    <title>CompuMundoHiperMegaRed</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
@@ -17,7 +17,7 @@
             </div>
             <div class="col-sm">
                 <form id="form1" runat="server" dir="ltr">
-
+                    <div><h3>Acceso</h3></div>
                     <div>
                         <label for="exampleInputEmail1">Email address</label>
                         </div>
