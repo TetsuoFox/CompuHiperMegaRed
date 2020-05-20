@@ -5,11 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace YoApruebo
+namespace SuperMundoHiperMegaRed
 {
     public partial class index2 : System.Web.UI.Page
     {
-        BLL.Login login = new BLL.Login();
+        YoApruebo.BLL.Login login = new YoApruebo.BLL.Login();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -17,15 +17,32 @@ namespace YoApruebo
 
         protected void btnentrar_Click1(object sender, EventArgs e)
         {
-            if (getAuthentication(textUser.Text, textPassword.Text) == true)
+            lblUser.Text = "";
+            lblPass.Text = "";
+            lblMsg.Text = "";
+
+            if (textUser.Text.Equals(""))
             {
-                Label1.Text = "si";
+                lblMsg.Text = "Los datos son obligatorios";
+                lblUser.Text = "*";
+            }
+            if (textPassword.Text.Equals(""))
+            {
+                lblMsg.Text = "Los datos son obligarios";
+                lblPass.Text = "*";
             }
             else
             {
-                Label1.Text = "no";
+                bool r = getAuthentication(textUser.Text, textPassword.Text);
+                if (r == true)
+                    //lblMsg.Text = "OK";
+                    Response.Redirect("index");
+                else
+                    lblMsg.Text = "Usuario o password invalida";
             }
         }
+
+      
 
         private bool getAuthentication(string usuario, string password)
         {

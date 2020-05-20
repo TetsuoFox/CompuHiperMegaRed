@@ -11,7 +11,7 @@ namespace YoApruebo
 {
 
 
-    public partial class index2
+    public partial class WebForm1
     {
 
         /// <summary>
