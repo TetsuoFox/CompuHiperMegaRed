@@ -9,7 +9,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
 <body>
-
+<nav class="navbar navbar-dark bg-success">
+<div class ="container">
+    <a href="login.php" class="navbar-brand">CompuMundoHiperMegaRed</a>
+</div>
+</nav>
     <div class="container mt-5">
         <div class="row">
             <div class="col-sm">
