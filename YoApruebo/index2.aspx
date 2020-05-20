@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index2.aspx.cs" Inherits="SuperMundoHiperMegaRed.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="index2.aspx.cs" Inherits="SuperMundoHiperMegaRed.index2" %>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -33,25 +33,29 @@
 				</div>
 			</div>
 			<div class="card-body">
-				<form>
+				<form  id="form1" runat="server" dir="ltr">
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="Usuario">
+						<asp:TextBox class="form-control" ID="textUser" runat="server" placeholder="Usuario"></asp:TextBox>
+						<asp:Label ID="lblUser" runat="server" ForeColor="Red"></asp:Label>
 						
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" placeholder="Clave">
+						 <asp:TextBox ID="textPassword" runat="server" type="password" class="form-control" placeholder="Clave"></asp:TextBox>
+						 <asp:Label ID="lblPass" runat="server" ForeColor="Red"></asp:Label>
 					</div>
+					<div><asp:Label ID="lblMsg" runat="server" Text="" ForeColor="red"></asp:Label></div>
 					<div class="row align-items-center remember">
 						<input type="checkbox">Recuerdame
 					</div>
 					<div class="form-group">
-						<input type="submit" value="Ingreso" class="btn float-right login_btn">
+						 <asp:Button ID="btnentrar" value="Ingreso" class="btn float-right login_btn" runat="server" Text="Ingresar" OnClick="btnentrar_Click1" />
+						 <asp:Label ID="Label1" runat="server" ForeColor="White"></asp:Label>
 					</div>
 				</form>
 			</div>
