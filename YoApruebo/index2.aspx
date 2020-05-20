@@ -33,25 +33,28 @@
 				</div>
 			</div>
 			<div class="card-body">
-				<form>
+				<form  id="form1" runat="server" dir="ltr">
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="Usuario">
+						<asp:TextBox class="form-control" ID="textUser" runat="server" placeholder="Usuario"></asp:TextBox>
+
 						
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
-						<input type="password" class="form-control" placeholder="Clave">
+						 <asp:TextBox ID="textPassword" runat="server" type="password" class="form-control" placeholder="Clave"></asp:TextBox>
 					</div>
 					<div class="row align-items-center remember">
 						<input type="checkbox">Recuerdame
 					</div>
 					<div class="form-group">
-						<input type="submit" value="Ingreso" class="btn float-right login_btn">
+						 <asp:Button ID="btnentrar" value="Ingreso" class="btn float-right login_btn" runat="server" Text="Button" OnClick="btnentrar_Click1" />
+
+                    <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
 					</div>
 				</form>
 			</div>
