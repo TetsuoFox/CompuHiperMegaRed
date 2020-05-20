@@ -41,8 +41,8 @@ namespace SuperMundoHiperMegaRed
                     lblMsg.Text = "Usuario o password invalida";
             }
         }
+  
 
-      
 
         private bool getAuthentication(string usuario, string password)
         {
