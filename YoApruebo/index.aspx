@@ -11,7 +11,7 @@
 <body>
 <nav class="navbar navbar-dark bg-dark">
 <div class ="container">
-    <a href="login.php" class="navbar-brand">CompuMundoHiperMegaRed</a>
+    <a href="index.aspx" class="navbar-brand">CompuMundoHiperMegaRed</a>
     </div>
     </nav>
     <div class="container mt-5">
