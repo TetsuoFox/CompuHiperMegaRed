@@ -12,28 +12,30 @@
 <nav class="navbar navbar-dark bg-dark">
 <div class ="container">
     <a href="login.php" class="navbar-brand">CompuMundoHiperMegaRed</a>
-</div>
-</nav>
+    </div>
+    </nav>
     <div class="container mt-5">
         <div class="row">
             <div class="col-sm">
-                
             </div>
-            <div class="col-sm">
+            <div class="col-sm border p-4">
                 <form id="form1" runat="server" dir="ltr">
-                    <div><h3>Acceso</h3></div>
                     <div>
+                        <h5><b>Iniciar sesión</b></h5>
+                    </div>
+                    <div class="mt-4">
                         <label for="exampleInputEmail1">Email address</label>
-                        </div>
-                       <div class="form-group">
-                        <asp:TextBox ID="textUser" runat="server"></asp:TextBox>
+
+                    </div>
+                    <div class="form-group">
+                        <asp:TextBox class="form-control" ID="textUser" runat="server"></asp:TextBox>
                     </div>
 
                     <div>
                         <label for="exampleInputPassword1">Password</label>
-                       </div>
-                        <div class="form-group">
-                        <asp:TextBox ID="textPassword" runat="server"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <asp:TextBox class="form-control" ID="textPassword" runat="server"></asp:TextBox>
                     </div>
 
                     <asp:Button ID="btnentrar" runat="server" Text="Button" OnClick="btnentrar_Click1" />
@@ -43,7 +45,6 @@
                 </form>
             </div>
             <div class="col-sm">
-                
             </div>
         </div>
     </div>
