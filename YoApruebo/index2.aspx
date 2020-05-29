@@ -21,7 +21,7 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-<div class="container">
+<div class="container mt-4 col-lg-4">
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 			<div class="card-header">
