@@ -11,7 +11,7 @@ namespace YoApruebo
 {
 
 
-    public partial class _Default
+    public partial class _Reportes
     {
     }
 }

@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace SuperMundoHiperMegaRed
+namespace YoApruebo
 {
-    public partial class index3 : System.Web.UI.Page
+    public partial class _Reportes: Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -1,2 +1,2 @@
 # CompuHiperMegaRed
-pagina web
+pagina web grupal
