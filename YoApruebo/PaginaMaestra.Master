@@ -1,0 +1,100 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PaginaMaestra.master.cs" Inherits="SuperMundoHiperMegaRed.PaginaMaestra" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <nav class="navbar bg-dark">
+        <a href="Home.aspx">
+            <h4>INICIO</h4>
+            <!--img src='#' alt='' style='width: 70px;height: 40px'/-->
+        </a>
+           
+          <ul class="nav nav-pills" id="myTab" role="tablist" style="margin-left: -400px">
+              <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="Reportes-tab" href="Reportes.aspx">Reportes</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" id="Inventario-tab" href="Inventario.aspx">Inventario</a>
+              </li>
+              <li class="nav-item" role="presentation">
+                <a class="nav-link" id="Articulos-tab" href="Articulos.aspx">Articulos</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Administrar Almacen</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">Crear Almacen</a>
+                  <a class="dropdown-item" href="#">Modificar Almacen</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Administrar Usuario</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">Crear Usuario</a>
+                  <a class="dropdown-item" href="#">Otorgar permiso</a>
+                  <a class="dropdown-item" href="#">Resetear usuario</a>
+                </div>
+              </li>
+          </ul>
+       
+ 
+        <!--barra de notificaciones-->
+        <ul class="nav">
+            <li>
+         <ul class="nav">
+            <li class="dropdown nav-notifi">
+                <a class="btn btn-warning btn-sm" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false" style="margin-bottom:-12px">
+                    alertas
+                <span class='badge badge-light navbar-badge' style='margin-right: -5px;margin-top: -25px'>2</span>
+                </a>
+            
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <div class="nav-user-info">
+                        <h5 class="mb-0 nav-user-name text-center">Notificaciones</h5>
+                    </div>
+                    <div class='dropdown-divider'></div> 
+                        <a class='text-dark dropdown-item' href='#'>Devolucion pendiente</a>
+                        <a class='text-dark dropdown-item' href='#'>Usuario sin permiso</a>
+
+                </div>
+            </li>
+        </ul>
+                </li>
+            <li>
+
+        <ul class="nav nav-pills">
+            <li class="nav-item dropdown nav-user">
+                <a class="btn btn-info active my-2 my-sm-0" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><b>USER</b></a>
+                <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                    <div class="nav-user-info">
+                        <h5 class="mb-0 nav-user-name text-center">Usuario logeado</h5>
+                    </div>
+                    <hr>
+                    <!--a class="dropdown-item text-right" href="#">Modificar clave</a-->
+                    <a class="dropdown-item text-right" href="index2">Salir</a>
+                </div>
+            </li>
+        </ul> 
+
+            </li>
+        </ul>
+    </nav>
+
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+      
+ </body>
+</html>

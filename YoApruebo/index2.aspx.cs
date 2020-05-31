@@ -36,7 +36,7 @@ namespace SuperMundoHiperMegaRed
                 bool r = getAuthentication(textUser.Text, textPassword.Text);
                 if (r == true)
                     //lblMsg.Text = "OK";
-                    Response.Redirect("index");
+                    Response.Redirect("home");
                 else
                     lblMsg.Text = "Usuario o password invalida";
             }
