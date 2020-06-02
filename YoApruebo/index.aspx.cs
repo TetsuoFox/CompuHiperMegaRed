@@ -4,12 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using YoApruebo.SC;
 
 namespace YoApruebo
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
         BLL.Login login = new BLL.Login();
+        SC.ServerConection server_conection = new ServerConection();
+        
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -25,6 +28,8 @@ namespace YoApruebo
             {
                 Label1.Text = "no";
             }
+
+            bool v = server_conection.AutenticatheUser("asdasd", "asdas");
         }
 
         private bool getAuthentication(string usuario, string password)
