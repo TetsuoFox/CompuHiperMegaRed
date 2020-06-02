@@ -65,6 +65,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -257,6 +258,7 @@
     <Compile Include="qrcode.aspx.designer.cs">
       <DependentUpon>qrcode.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SC\ServerConection.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

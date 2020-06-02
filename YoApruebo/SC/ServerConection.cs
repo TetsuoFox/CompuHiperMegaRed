@@ -56,8 +56,8 @@ namespace YoApruebo.SC
         }
         private string GetCurrentDomainPath()
         {
-            DirectoryEntry de = new DirectoryEntry("LDAP://ROOTDSE");
-            return "LDAP://" + de.Properties["defaultNamingContext"][0].ToString();
+            DirectoryEntry de = new DirectoryEntry("LDAP://192.168.0.20");
+            return "LDAP://192.168.0.20" + de.Properties["defaultNamingContext"][0].ToString();
         }
 
         public bool GetNTuser(string NTuserAD)

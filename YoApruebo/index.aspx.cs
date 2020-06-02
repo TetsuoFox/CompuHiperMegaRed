@@ -13,6 +13,7 @@ namespace YoApruebo
         BLL.Login login = new BLL.Login();
         SC.ServerConection server_conection = new ServerConection();
         
+        
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -20,16 +21,23 @@ namespace YoApruebo
 
         protected void btnentrar_Click1(object sender, EventArgs e)
         {
+            
             if ( getAuthentication( textUser.Text , textPassword.Text ) == true)
             {
-                Label1.Text = "si";
-            }
+                if (server_conection.AutenticatheUser("Administrador", "Inacap2020"))
+                {
+                    Label1.Text = ">>>si";
+
+                }
+                else
+                {
+                    Label1.Text = "<<<si";
+                }
+                }
             else
             {
                 Label1.Text = "no";
             }
-
-            bool v = server_conection.AutenticatheUser("asdasd", "asdas");
         }
 
         private bool getAuthentication(string usuario, string password)
