@@ -8,6 +8,7 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
@@ -17,84 +18,114 @@
 </head>
 <body>
 
-    <nav class="navbar bg-dark">
-        <a href="Home.aspx">
-            <h4>INICIO</h4>
-            <!--img src='#' alt='' style='width: 70px;height: 40px'/-->
-        </a>
-           
-          <ul class="nav nav-pills" id="myTab" role="tablist" style="margin-left: -400px">
-              <li class="nav-item" role="presentation">
-                <a class="nav-link active" id="Reportes-tab" href="Reportes.aspx">Reportes</a>
-              </li>
-              <li class="nav-item" role="presentation">
-                <a class="nav-link" id="Inventario-tab" href="Inventario.aspx">Inventario</a>
-              </li>
-              <li class="nav-item" role="presentation">
-                <a class="nav-link" id="Articulos-tab" href="Articulos.aspx">Articulos</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Administrar Almacen</a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">Crear Almacen</a>
-                  <a class="dropdown-item" href="#">Modificar Almacen</a>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Administrar Usuario</a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">Crear Usuario</a>
-                  <a class="dropdown-item" href="#">Otorgar permiso</a>
-                  <a class="dropdown-item" href="#">Resetear usuario</a>
-                </div>
-              </li>
-          </ul>
-       
- 
-        <!--barra de notificaciones-->
-        <ul class="nav">
-            <li>
-         <ul class="nav">
-            <li class="dropdown nav-notifi">
-                <a class="btn btn-warning btn-sm" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false" style="margin-bottom:-12px">
-                    alertas
-                <span class='badge badge-light navbar-badge' style='margin-right: -5px;margin-top: -25px'>2</span>
-                </a>
-            
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                    <div class="nav-user-info">
-                        <h5 class="mb-0 nav-user-name text-center">Notificaciones</h5>
-                    </div>
-                    <div class='dropdown-divider'></div> 
-                        <a class='text-dark dropdown-item' href='#'>Devolucion pendiente</a>
-                        <a class='text-dark dropdown-item' href='#'>Usuario sin permiso</a>
 
-                </div>
-            </li>
-        </ul>
-                </li>
-            <li>
+<nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
+	<a class="navbar-brand" href="../Home.aspx">
+    	<img src="../img/marca.png" height="30" alt="">
+  	</a>
+    <a class="navbar-brand" href="#"></a>
+  		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  	 	<span class="text-muted">Menu</span>
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-        <ul class="nav nav-pills">
-            <li class="nav-item dropdown nav-user">
-                <a class="btn btn-info active my-2 my-sm-0" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><b>USER</b></a>
-                <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
-                    <div class="nav-user-info">
-                        <h5 class="mb-0 nav-user-name text-center">Usuario logeado</h5>
-                    </div>
-                    <hr>
-                    <!--a class="dropdown-item text-right" href="#">Modificar clave</a-->
-                    <a class="dropdown-item text-right" href="index2">Salir</a>
-                </div>
-            </li>
-        </ul> 
+  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    	<ul class="navbar-nav ml-auto">
+	      	<li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle text-light btn btn-info btn-sm" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Alertas<span class="badge badge-light">9</span>
+		        </a>
+		        <div class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdownMenuLink">
+		          	<a class="dropdown-item" href="#1">Listado alertas</a>
+		        </div>
+	      	</li>
+	   	
+	      	<li class="nav-item dropdown">
+	        	<a class="nav-link dropdown-toggle text-light btn btn-secondary btn-sm" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	          Usuario
+	        	</a>
+		        <div class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdownMenuLink">
+		          	<a class="dropdown-item" href="#1">Nombre Apellido</a>
+		          	<a class="dropdown-item" href="#">Modificar Clave</a>
+		          	<a class="dropdown-item" href="../Index2.aspx">Salir</a>
+		        </div>
+	      	</li>
+	      </ul>
+    	<ul class="navbar-nav">
+    	</ul>
+	</div>
 
-            </li>
-        </ul>
-    </nav>
+</nav>
 
-    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-    </asp:ContentPlaceHolder>
-      
+
+<div>
+	<div class="container-fluid" style="height: 100%; max-height:100% ;margin-top: 36px">
+			
+			<div class="row">
+				<div class="col-2" style="text-align: left; padding: 0px; background-color: rgb(229,240,232)">
+					<br>
+					<div class='overflow-auto' style="height: 567px; max-height:100%">
+					<ul class="list-group list-group-flush text-dark">
+						<li class="list-group-item list-group-item-info"><b>ARTICULO</b>
+							<ul class="nav flex-column">
+							  	<li class="nav-item"><a href="../Articulos/AgregarArticuloMasv.aspx">Agregar Maviso</a></li>
+							    <li class="nav-item"><a href="#">Agregar Individual</a></li>
+							    <li class="nav-item"><a href="#">Agregar Editar</a></li>
+							</ul>
+						</li>
+						<li class="list-group-item list-group-item-info"><b>ALMACEN</b>
+							<ul class="nav flex-column">
+							  	<li class="nav-item"><a href="#">Agregar Nuevo</a></li>
+							    <li class="nav-item"><a href="#">Editar</a></li>
+							</ul>
+						</li>
+						<li class="list-group-item list-group-item-info"><b>USUARIOS</b>
+							<ul class="nav flex-column">
+							  	<li class="nav-item"><a href="../Usuarios/AgregarUsuario.aspx">Agregar</a></li>
+							    <li class="nav-item"><a href="#">Editar</a></li>
+							    <li class="nav-item"><a href="#">Asignar Perfil</a></li>
+							</ul>
+						</li>
+						<li class="list-group-item list-group-item-info"><b>PERFILES</b>
+							<ul class="nav flex-column">
+							  	<li class="nav-item"><a href="#">Agregar</a></li>
+							    <li class="nav-item"><a href="#">Editar</a></li>
+							</ul>
+						</li>
+						<li class="list-group-item list-group-item-info"><b>GESTION STOCK</b>
+							<ul class="nav flex-column">
+							  	<li class="nav-item"><a href="#">Imprimir Etiqueta</a></li>
+							    <li class="nav-item"><a href="#">Modificar Stock</a></li>
+							    <li class="nav-item"><a href="#">Asignar articulo</a></li>
+							</ul>
+						</li>
+						<li class="list-group-item list-group-item-info"><b>REPORTES</b>
+							<ul class="nav flex-column">
+							  	<li class="nav-item"><a href="#">Ver</a></li>
+							</ul>
+						</li>
+						<li class="list-group-item list-group-item-info"><b>HISTORIAL</b>
+							<ul class="nav flex-column">
+							  	<li class="nav-item"><a href="#">Ver</a></li>
+							</ul>
+						</li>
+					</ul>
+					</div>
+				</div>
+				<div class="col-10" style="background-color: rgb(229,240,232);margin-top: 20px">	
+					
+				<div>
+					    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+						</asp:ContentPlaceHolder>
+				</div>	
+	
+				</div>
+			</div>
+	</div> 	
+</div>
+<footer class="bg-dark text-light" style="height: 40px;text-align: center">
+ 	 <p>#compumundohipermegared</p>
+</footer>
+
  </body>
 </html>

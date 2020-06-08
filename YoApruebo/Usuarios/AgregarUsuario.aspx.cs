@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace YoApruebo
 {
-    public partial class _Reportes: Page
+    public partial class _Usuario: Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

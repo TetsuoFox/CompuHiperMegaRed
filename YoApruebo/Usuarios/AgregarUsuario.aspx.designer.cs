@@ -7,11 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace SuperMundoHiperMegaRed
+namespace YoApruebo
 {
 
 
-    public partial class AgregarUsuario
+    public partial class _Usuario
     {
 
         /// <summary>
