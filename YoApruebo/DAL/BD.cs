@@ -10,15 +10,15 @@ namespace YoApruebo.DAL
 {
     public class BD
     {
-        string ipServer = @"18.217.105.148\PRODUCCION";
-        string databaseName = "inacap";
+        string ipServer = @"sql5046.site4now.net";//@"18.217.105.148\PRODUCCION";
+        string databaseName = "DB_A62E4D_inacap2020";//"inacap";
 
         public string getConexion(string tipo)
         {
             switch (tipo)
             {
                 case "SQL":
-                    return "Server=" + ipServer + ";Database=" + databaseName + ";User Id=vcastro;Password=victor2020;";
+                    return "Server=" + ipServer + ";Database=" + databaseName + ";User Id=DB_A62E4D_inacap2020_admin;Password=Lindi2020;";//";User Id=vcastro;Password=victor2020;";
                     //return "Server=" + ipServer + ";Database=" + databaseName + ";Trusted_Connection=True;;";
                 case "ORACLE":
                     return "";
