@@ -28,5 +28,10 @@ namespace SuperMundoHiperMegaRed
         {
             lbl1.Text = "Hola jeje2";
         }
+
+        protected void btn3_Click(object sender, EventArgs e)
+        {
+            lbl2.Text = "Actualizacion pagina completa";
+        }
     }
 }
