@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Configuration;
@@ -10,6 +11,8 @@ namespace YoApruebo
 {
     public partial class _Usuario: Page
     {
+        YoApruebo.BLL.Rut rut = new YoApruebo.BLL.Rut();
+        YoApruebo.BLL.Ingreso ingreso = new YoApruebo.BLL.Ingreso();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -19,61 +22,84 @@ namespace YoApruebo
         {
             if (textPass1.Text.Equals(textPass2.Text))
             {
-
+                string query = "insert into Persona (Nombre, apellido, cargo, correo, telefono, direccion, rut, dv, estado) values ('"+textNombre+"','"+textRut.Text+"','"+textCargo+"','"+textCorreo+"','"+textTelefono+"','"+textDireccion+"','"+textRut+"','"+textDV+",1";
+                ingreso.ingresar(query);
             }
             else {
                 lblAd.Text = "Las Contraseña no coinciden";
                 textPass2.CssClass = "form-control is-invalid";
                 textPass1.CssClass = "form-control is-invalid";
             }
+
+            if (textRut.Text.Equals(""))
+            {
+                textRut.CssClass = "form-control is-invalid";
+                lblAd2.Text = "Faltan datos por ingresar";
+            }
+            else { 
+            
+            }
             if (textNombre.Text.Equals(""))
             {
             textNombre.CssClass = "form-control is-invalid";
+                lblAd2.Text = "Faltan datos por ingresar";
             }
             if (textApellido.Text.Equals(""))
             {
                 textApellido.CssClass = "form-control is-invalid";
+                lblAd2.Text = "Faltan datos por ingresar";
             }
-            if (textNombre.Text.Equals(""))
+            if (textDV.Text.Equals(""))
             {
-                textNombre.CssClass = "form-control is-invalid";
+                textDV.CssClass = "form-control is-invalid";
+                lblAd2.Text = "Faltan datos por ingresar";
             }
-            if (textNombre.Text.Equals(""))
+            if (textCargo.Text.Equals(""))
             {
-                textNombre.CssClass = "form-control is-invalid";
+                textCargo.CssClass = "form-control is-invalid";
+                lblAd2.Text = "Faltan datos por ingresar";
             }
-            if (textNombre.Text.Equals(""))
+            if (textCorreo.Text.Equals(""))
             {
-                textNombre.CssClass = "form-control is-invalid";
+                textCorreo.CssClass = "form-control is-invalid";
+                lblAd2.Text = "Faltan datos por ingresar";
             }
-            if (textNombre.Text.Equals(""))
+            if (textTelefono.Text.Equals(""))
             {
-                textNombre.CssClass = "form-control is-invalid";
+                textTelefono.CssClass = "form-control is-invalid";
+                lblAd2.Text = "Faltan datos por ingresar";
             }
-            if (textNombre.Text.Equals(""))
+            if (textDireccion.Text.Equals(""))
             {
-                textNombre.CssClass = "form-control is-invalid";
+                textDireccion.CssClass = "form-control is-invalid";
+                lblAd2.Text = "Faltan datos por ingresar";
             }
-            if (textNombre.Text.Equals(""))
+            if (textUsuario.Text.Equals(""))
             {
-                textNombre.CssClass = "form-control is-invalid";
+                textUsuario.CssClass = "form-control is-invalid";
+                lblAd2.Text = "Faltan datos por ingresar";
             }
-            if (textNombre.Text.Equals(""))
+            if (textPass1.Text.Equals(""))
             {
-                textNombre.CssClass = "form-control is-invalid";
+                textPass1.CssClass = "form-control is-invalid";
+                lblAd2.Text = "Faltan datos por ingresar";
             }
-            if (textNombre.Text.Equals(""))
+            if (textPass2.Text.Equals(""))
             {
-                textNombre.CssClass = "form-control is-invalid";
+                textPass2.CssClass = "form-control is-invalid";
+                lblAd2.Text = "Faltan datos por ingresar";
             }
-            if (textNombre.Text.Equals(""))
-            {
-                textNombre.CssClass = "form-control is-invalid";
-            }
-            if (textNombre.Text.Equals(""))
-            {
-                textNombre.CssClass = "form-control is-invalid";
-            }
+           
+        }
+
+        
+        protected void textRut_TextChanged(object sender, EventArgs e)
+        {
+         //  string query = "SELECT Nombre, apellido, cargo, correo, telefono, direccion FROM persona WHERE rut ='" + textRut.Text + "'";
+          // DataTable respuesta = rut.getRut(query, textRut.Text);
+
+           // textNombre.Text = respuesta.Rows[0][1].ToString();
+
         }
     }
 }

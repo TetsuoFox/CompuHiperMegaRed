@@ -27,6 +27,7 @@ namespace YoApruebo.DAL
             }
         }
 
+
         public DataTable getDataTable(string query, string con)
         {
             /*Invocamos la Conexión*/
@@ -46,6 +47,12 @@ namespace YoApruebo.DAL
             }
             /*retornamos el DT*/
             return dt;
+        }
+
+        public void ejecutarQuery(string query, string con)
+        {
+            SqlConnection conexion = new SqlConnection(con);
+            SqlCommand comando = new SqlCommand(query, conexion);
         }
     }
 }

@@ -34,7 +34,7 @@
                 <label class="form-label">Rut: </label>
                     </div>   
                 <div class="col-sm-5">
-                    <asp:TextBox class="form-control" ID="textRut" runat="server" placeholder="12345678"></asp:TextBox>
+                    <asp:TextBox class="form-control" ID="textRut" runat="server" placeholder="12345678" OnTextChanged="textRut_TextChanged"></asp:TextBox>
                 </div>
                  <div class="col-sm-1">
                 <label class="form-label">-</label>
@@ -43,6 +43,8 @@
                     <asp:TextBox class="form-control" ID="textDV" runat="server" placeholder="0"></asp:TextBox>
                 </div>
             </div>  
+
+
              <div class="form-group row">
                 <div class="col-sm-1">
                 <label class="form-label">Usuario: </label>
@@ -110,9 +112,14 @@
              <div class="form-group row">
             <div class="col-sm-4">
              <asp:Label ID="lblAd" runat="server" ForeColor="Red" > </asp:Label>
+                </div>
+                </div>
+               <div class="form-group row">
+            <div class="col-sm-4">
              <asp:Label ID="lblAd2" runat="server" ForeColor="Red" > </asp:Label>
                 </div>
                 </div>
+             
         </form>
     </div>
 </div>

@@ -191,6 +191,8 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\Ingreso.cs" />
+    <Compile Include="BLL\Rut.cs" />
     <Compile Include="exTreeView.aspx.cs">
       <DependentUpon>exTreeView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
