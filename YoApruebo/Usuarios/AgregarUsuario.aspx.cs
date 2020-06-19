@@ -22,7 +22,7 @@ namespace YoApruebo
         {
             if (textPass1.Text.Equals(textPass2.Text))
             {
-                string query = "insert into Persona (Nombre, apellido, cargo, correo, telefono, direccion, rut, dv, estado) values ('"+textNombre+"','"+textRut.Text+"','"+textCargo+"','"+textCorreo+"','"+textTelefono+"','"+textDireccion+"','"+textRut+"','"+textDV+",1";
+                string query = "Insert into Persona (nombre, apellido, cargo, correo, telefono, direccion, rut, dv, estado) values ('"+textNombre.Text+"','"+textApellido.Text+"','"+textCargo.Text+"','"+textCorreo.Text+"','"+textTelefono.Text+"','"+textDireccion.Text+"','"+textRut.Text+"','"+textDV.Text+",1";
                 ingreso.ingresar(query);
             }
             else {
