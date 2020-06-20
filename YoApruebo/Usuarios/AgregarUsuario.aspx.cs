@@ -73,7 +73,7 @@ namespace YoApruebo
             if (textNombre.Text.Equals(""))
             {
             textNombre.CssClass = "form-control is-invalid";
-                lblAd2.Text = "Faltan datos por ingresar";
+                lblAd2.Text = "Faltan datos por";
             }
             if (textApellido.Text.Equals(""))
             {
