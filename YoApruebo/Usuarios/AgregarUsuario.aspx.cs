@@ -20,8 +20,9 @@ namespace YoApruebo
         protected void Page_Load(object sender, EventArgs e)
         { 
             string queryperfil = "select id_perfil, perfil from Perfil";
-             dt = ingreso.getPerfil(queryperfil);
-           
+            
+            dt = ingreso.getPerfil(queryperfil);
+            dt.Clear();
             ListItem i;
             foreach (DataRow r in dt.Rows)
             {
@@ -123,28 +124,28 @@ namespace YoApruebo
         }
 
         
-        protected void textRut_keypress(object sender, EventArgs e)
+        protected void textRut_TextChanged(object sender, EventArgs e)
         {
-           
+
+            string query = "SELECT Nombre, apellido, cargo, correo, telefono, direccion, dv FROM persona WHERE rut ='" + textRut.Text + "'";
+            DataTable respuesta = ingreso.getPerfil(query);
+            foreach (DataRow r in respuesta.Rows)
+            {
+                textNombre.Text = r["nombre"].ToString();
+                textApellido.Text = r["apellido"].ToString();
+                textCargo.Text = r["cargo"].ToString();
+                textCorreo.Text = r["correo"].ToString();
+                textTelefono.Text = r["telefono"].ToString();
+                textDireccion.Text = r["direccion"].ToString();
+                textDV.Text = r["dv"].ToString();
+            }
         }
 
         protected void textRut_Leave(object sender, EventArgs e)
         {
-            if (textRut.Text == "")
-            {
+            
 
-            }
-            else
-            {
-                string query = "SELECT Nombre, apellido, cargo, correo, telefono, direccion FROM persona WHERE rut ='" + textRut.Text + "'";
-                DataTable respuesta = ingreso.getPerfil(query);
-                foreach (DataRow r in respuesta.Rows)
-                {
-                    textNombre.Text = r["nombre"].ToString();
 
-                }
-
-            }
         }
     }
         
