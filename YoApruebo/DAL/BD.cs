@@ -19,13 +19,14 @@ namespace YoApruebo.DAL
             {
                 case "SQL":
                     return "Server=" + ipServer + ";Database=" + databaseName + ";User Id=DB_A62E4D_inacap2020_admin;Password=Lindi2020;";//";User Id=vcastro;Password=victor2020;";
-                    //return "Server=" + ipServer + ";Database=" + databaseName + ";Trusted_Connection=True;;";
+                                                                                                                                          //return "Server=" + ipServer + ";Database=" + databaseName + ";Trusted_Connection=True;;";
                 case "ORACLE":
                     return "";
                 default:
                     return "";
             }
         }
+
 
         public DataTable getDataTable(string query, string con)
         {
@@ -46,6 +47,15 @@ namespace YoApruebo.DAL
             }
             /*retornamos el DT*/
             return dt;
+        }
+
+        public void ejecutarQuery(string query, string con)
+        {
+            SqlConnection conexion = new SqlConnection(con);
+            conexion.Open();
+            SqlCommand comando = new SqlCommand(query, conexion);
+            comando.ExecuteNonQuery();
+            conexion.Close();
         }
     }
 }

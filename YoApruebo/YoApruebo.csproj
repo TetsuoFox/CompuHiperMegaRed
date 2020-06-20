@@ -122,7 +122,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="exTreeView.aspx" />
     <Content Include="img\marca.png" />
+    <Content Include="pageJC.aspx" />
     <Content Include="Usuarios\AgregarUsuario.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Contact.aspx" />
@@ -189,6 +191,22 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\Ingreso.cs" />
+    <Compile Include="BLL\Rut.cs" />
+    <Compile Include="exTreeView.aspx.cs">
+      <DependentUpon>exTreeView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="exTreeView.aspx.designer.cs">
+      <DependentUpon>exTreeView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pageJC.aspx.cs">
+      <DependentUpon>pageJC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pageJC.aspx.designer.cs">
+      <DependentUpon>pageJC.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Usuarios\AgregarUsuario.aspx.cs">
       <DependentUpon>AgregarUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
