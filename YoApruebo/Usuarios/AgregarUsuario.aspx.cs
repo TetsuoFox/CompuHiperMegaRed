@@ -125,10 +125,18 @@ namespace YoApruebo
         
         protected void textRut_TextChanged(object sender, EventArgs e)
         {
-         //  string query = "SELECT Nombre, apellido, cargo, correo, telefono, direccion FROM persona WHERE rut ='" + textRut.Text + "'";
-          // DataTable respuesta = rut.getRut(query, textRut.Text);
-           // textNombre.Text = respuesta.Rows[0][1].ToString();
+          string query = "SELECT Nombre, apellido, cargo, correo, telefono, direccion FROM persona WHERE rut ='" + textRut.Text + "'";
+          DataTable respuesta = ingreso.getPerfil(query);
+            foreach (DataRow r in respuesta.Rows)
+            {
+                textNombre.Text = r["nombre"].ToString();
+            }
 
+        }
+        private void textRut_Leave(object sender, EventArgs e)
+        {
+            //Do your stuff
+            String text = NameVal.Text;
         }
     }
 }
