@@ -96,6 +96,15 @@ namespace YoApruebo
         protected global::System.Web.UI.WebControls.TextBox textCargo;
 
         /// <summary>
+        /// Control listPerfil.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList listPerfil;
+
+        /// <summary>
         /// Control textCorreo.
         /// </summary>
         /// <remarks>

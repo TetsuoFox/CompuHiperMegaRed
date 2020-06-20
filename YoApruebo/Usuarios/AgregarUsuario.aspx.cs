@@ -7,23 +7,53 @@ using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
 namespace YoApruebo
 {
     public partial class _Usuario: Page
     {
+        string idpersona;
+        string idperfil;
+        DataTable dt; 
         YoApruebo.BLL.Rut rut = new YoApruebo.BLL.Rut();
         YoApruebo.BLL.Ingreso ingreso = new YoApruebo.BLL.Ingreso();
         protected void Page_Load(object sender, EventArgs e)
-        {
-
+        { 
+            string queryperfil = "select id_perfil, perfil from Perfil";
+             dt = ingreso.getPerfil(queryperfil);
+           
+            ListItem i;
+            foreach (DataRow r in dt.Rows)
+            {
+                i = new ListItem(r["perfil"].ToString());
+                listPerfil.Items.Add(i);
+            }
         }
 
         protected void AgregarUsuario_Click(object sender, EventArgs e)
         {
+            
+
             if (textPass1.Text.Equals(textPass2.Text))
             {
                 string query = "Insert into Persona (nombre, apellido, cargo, correo, telefono, direccion, rut, dv, estado) values ('"+textNombre.Text+"','"+textApellido.Text+"','"+textCargo.Text+"','"+textCorreo.Text+"','"+textTelefono.Text+"','"+textDireccion.Text+"','"+textRut.Text+"','"+textDV.Text+"',1)";
                 ingreso.ingresar(query);
+                string queryidperso = "select id_persona from persona where rut='" + textRut.Text + "'";
+                DataTable dt2 = ingreso.getPerfil(queryidperso);
+                foreach (DataRow r in dt2.Rows)
+                {
+                   idpersona = r["id_persona"].ToString();
+                }
+                string queryperfil = "select id_perfil from Perfil where perfil = '"+listPerfil.SelectedValue+"'";
+                DataTable dt3 = ingreso.getPerfil(queryperfil);
+
+                foreach (DataRow r in dt3.Rows)
+                {
+                    idperfil = r["id_perfil"].ToString();
+                }
+
+                string queryuser = "insert into usuario (usuario, password, id_persona, id_perfil, estado) values ('" + textUsuario.Text + "','" + textPass1.Text + "','" + idpersona + "','" + idperfil + "',1)";
+                ingreso.ingresar(queryuser);
             }
             else {
                 lblAd.Text = "Las Contraseña no coinciden";

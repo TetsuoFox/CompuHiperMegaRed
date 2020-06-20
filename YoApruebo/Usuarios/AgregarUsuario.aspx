@@ -76,6 +76,14 @@
                     <asp:TextBox class="form-control" ID="textCargo" runat="server" placeholder="Cargo"></asp:TextBox>
                 </div>
             </div> 
+            <div class="form-group row">
+                <div class="col-sm-1">
+                <label class="form-label">Perfil: </label>
+                    </div>  
+                <div class="col-sm-8">
+                    <asp:DropDownList ID="listPerfil" runat="server"></asp:DropDownList>
+                    </div>
+            </div> 
               <div class="form-group row">
                 <div class="col-sm-1">
                 <label class="form-label">Correo: </label>

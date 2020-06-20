@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -17,6 +18,11 @@ namespace YoApruebo.BLL
         {
             bd.ejecutarQuery(query, bd.getConexion("SQL"));
         }
-            
+
+        public DataTable getPerfil(String query)
+        {
+            DataTable dt = bd.getDataTable(query, bd.getConexion("SQL"));
+            return dt;
+        }
     }
 }
