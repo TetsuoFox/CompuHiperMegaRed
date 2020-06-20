@@ -11,6 +11,7 @@ namespace SuperMundoHiperMegaRed.Almacenes.Agregar_Almacenes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Cambio de prueba GIT
 
         }
     }
