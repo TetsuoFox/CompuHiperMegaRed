@@ -18,7 +18,7 @@
                 <label class="form-label">Rut: </label>
                     </div>   
                 <div class="col-sm-5">
-                    <asp:TextBox class="form-control" ID="textRut" runat="server" placeholder="12345678" OnTextChanged="textRut_keypress"  ></asp:TextBox>
+                    <asp:TextBox class="form-control" ID="textRut" runat="server" placeholder="12345678" OnTextChanged="textRut_TextChanged" autopostback="true" ></asp:TextBox>
                 </div>
                  <div class="col-sm-1">
                 <label class="form-label">-</label>
