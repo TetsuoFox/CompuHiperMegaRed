@@ -13,6 +13,20 @@
 </nav>
     <div class="card card-body">
         <form id="form1" runat="server">
+              <div class="form-group row">
+                <div class="col-sm-1">
+                <label class="form-label">Rut: </label>
+                    </div>   
+                <div class="col-sm-5">
+                    <asp:TextBox class="form-control" ID="textRut" runat="server" placeholder="12345678" OnTextChanged="textRut_keypress"  ></asp:TextBox>
+                </div>
+                 <div class="col-sm-1">
+                <label class="form-label">-</label>
+                    </div>   
+                <div class="col-sm-2">
+                    <asp:TextBox class="form-control" ID="textDV" runat="server" placeholder="0"></asp:TextBox>
+                </div>
+            </div>  
             <div class="form-group row">
                 <div class="col-sm-1">
                 <label class="form-label">Nombre: </label>
@@ -29,22 +43,7 @@
                     <asp:TextBox class="form-control" ID="textApellido" runat="server" placeholder="Apellido"></asp:TextBox>
                 </div>
             </div> 
-            <div class="form-group row">
-                <div class="col-sm-1">
-                <label class="form-label">Rut: </label>
-                    </div>   
-                <div class="col-sm-5">
-                    <asp:TextBox class="form-control" ID="textRut" runat="server" placeholder="12345678" OnTextChanged="textRut_Leave"  ></asp:TextBox>
-                </div>
-                 <div class="col-sm-1">
-                <label class="form-label">-</label>
-                    </div>   
-                <div class="col-sm-2">
-                    <asp:TextBox class="form-control" ID="textDV" runat="server" placeholder="0"></asp:TextBox>
-                </div>
-            </div>  
-
-
+          
              <div class="form-group row">
                 <div class="col-sm-1">
                 <label class="form-label">Usuario: </label>

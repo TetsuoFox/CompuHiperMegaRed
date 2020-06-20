@@ -123,20 +123,27 @@ namespace YoApruebo
         }
 
         
-        protected void textRut_TextChanged(object sender, EventArgs e)
+        protected void textRut_keypress(object sender, EventArgs e)
         {
-
-            }
+           
+        }
 
         protected void textRut_Leave(object sender, EventArgs e)
         {
-            
+            if (textRut.Text == "")
+            {
+
+            }
+            else
+            {
                 string query = "SELECT Nombre, apellido, cargo, correo, telefono, direccion FROM persona WHERE rut ='" + textRut.Text + "'";
                 DataTable respuesta = ingreso.getPerfil(query);
                 foreach (DataRow r in respuesta.Rows)
                 {
                     textNombre.Text = r["nombre"].ToString();
-                
+
+                }
+
             }
         }
     }
