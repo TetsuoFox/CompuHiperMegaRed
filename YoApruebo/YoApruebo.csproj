@@ -122,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Almacenes\Agregar Almacenes\WebForm1.aspx" />
     <Content Include="exTreeView.aspx" />
     <Content Include="img\marca.png" />
     <Content Include="pageJC.aspx" />
@@ -191,6 +192,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Almacenes\Agregar Almacenes\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Almacenes\Agregar Almacenes\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BLL\Ingreso.cs" />
     <Compile Include="BLL\Rut.cs" />
     <Compile Include="exTreeView.aspx.cs">
