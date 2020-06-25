@@ -122,11 +122,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="Almacenes\Agregar Almacenes\WebForm1.aspx" />
+    <Content Include="Almacenes\Agregar Almacenes\agregarAlmacenesPage.aspx" />
     <Content Include="exTreeView.aspx" />
     <Content Include="img\marca.png" />
     <Content Include="pageJC.aspx" />
-    <Content Include="Usuarios\AgregarUsuario.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -186,18 +185,19 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="Usuarios\AgregarUsuario.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Almacenes\Agregar Almacenes\WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Almacenes\Agregar Almacenes\agregarAlmacenesPage.aspx.cs">
+      <DependentUpon>agregarAlmacenesPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Almacenes\Agregar Almacenes\WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="Almacenes\Agregar Almacenes\agregarAlmacenesPage.aspx.designer.cs">
+      <DependentUpon>agregarAlmacenesPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="BLL\Ingreso.cs" />
     <Compile Include="BLL\Rut.cs" />
@@ -208,19 +208,13 @@
     <Compile Include="exTreeView.aspx.designer.cs">
       <DependentUpon>exTreeView.aspx</DependentUpon>
     </Compile>
+    <Compile Include="OffTopic\DatosProyecto.cs" />
     <Compile Include="pageJC.aspx.cs">
       <DependentUpon>pageJC.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="pageJC.aspx.designer.cs">
       <DependentUpon>pageJC.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Usuarios\AgregarUsuario.aspx.cs">
-      <DependentUpon>AgregarUsuario.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Usuarios\AgregarUsuario.aspx.designer.cs">
-      <DependentUpon>AgregarUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
@@ -300,6 +294,13 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\AgregarUsuario.aspx.cs">
+      <DependentUpon>AgregarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuarios\AgregarUsuario.aspx.designer.cs">
+      <DependentUpon>AgregarUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
