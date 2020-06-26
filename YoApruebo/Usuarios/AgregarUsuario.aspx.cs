@@ -20,10 +20,11 @@ namespace YoApruebo
         protected void Page_Load(object sender, EventArgs e)
         { 
             string queryperfil = "select id_perfil, perfil from Perfil";
-            
+      
             dt = ingreso.getPerfil(queryperfil);
-            dt.Clear();
+           
             ListItem i;
+            
             foreach (DataRow r in dt.Rows)
             {
                 i = new ListItem(r["perfil"].ToString());
@@ -73,7 +74,7 @@ namespace YoApruebo
             if (textNombre.Text.Equals(""))
             {
             textNombre.CssClass = "form-control is-invalid";
-                lblAd2.Text = "Faltan datos por";
+                lblAd2.Text = "Faltan datos por ingresar";
             }
             if (textApellido.Text.Equals(""))
             {
