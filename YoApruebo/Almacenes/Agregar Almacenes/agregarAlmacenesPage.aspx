@@ -27,10 +27,7 @@
                 <asp:Button ID="agregarAlmacen" value="agregarAlmacen" class="btn btn-success btn-block" runat="server" Text="Agregar Almacen" OnClick="agregarAlmacen_Click" />
 
             </div>
-
         </div>
-
-
     </div>
 
     <br />
