@@ -26,32 +26,31 @@
 
 </head>
 <body style="color: slategrey">
-    <div class="container body-content" style="max-width: 1000px; width: 1000px">
-        <div class="row">
-            <form id="form1" runat="server">
-                <asp:ScriptManager runat="server">
-                    <Scripts>
-                        <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
-                        <%--Framework Scripts--%>
-                        <asp:ScriptReference Name="MsAjaxBundle" />
-                        <%--Bundling is a new feature in ASP.NET 4.5 that makes it easy to combine or bundle multiple files into a single file.
+    <form id="form1" runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <%--Bundling is a new feature in ASP.NET 4.5 that makes it easy to combine or bundle multiple files into a single file.
                         You can create CSS, JavaScript and other bundles. Fewer files means fewer HTTP requests and that can improve first
                         page load performance.--%>
-                        <asp:ScriptReference Name="jquery" />
-                        <asp:ScriptReference Name="bootstrap" />
-                        <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
-                        <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
-                        <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
-                        <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
-                        <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
-                        <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
-                        <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
-                        <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
-                        <asp:ScriptReference Name="WebFormsBundle" />
-                        <%--Site Scripts--%>
-                    </Scripts>
-                </asp:ScriptManager>
-
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+        <div class="container body-content" style="max-width: 1000px; width: 100%">
+            <div class="row">
                 <div class="container-fluid">
                     <div class="row">
                         <nav class="navbar navbar-expand-md navbar-dark bg-dark" style="width: 100%">
@@ -75,75 +74,72 @@
                             </div>
                         </nav>
                     </div>
-                </div>
+        </div>
 
-                <%-- <div class="w-100"></div> --%>
-                <div class="container-fluid bg-warning" style="width: 100%; height: 100%;">
-                    <div class="row">
+        <%-- <div class="w-100"></div> --%>
 
-                        <div class="col-md-3 bg-success">
-                            <div class="row">
+        <div class="col-md-3 bg-success">
+            <div class="row">
 
-                                <div class="list-group" style="width: 100%">
-                                    <a class="list-group-item active" href="#botonesUno" data-toggle="collapse">ARTICULO</a>
-                                    <div class="collapse show" id="botonesUno">
-                                        <a class="list-group-item list-group-item-action" href="../Articulos/AgregarArticuloMasv.aspx">&ensp;Agregar Maviso</a>
-                                        <a class="list-group-item list-group-item-action" href="#list-item-4">&ensp;Agregar Individual</a>
-                                        <a class="list-group-item list-group-item-action" href="#list-item-3">&ensp;Agregar Editar</a>
-                                    </div>
-                                    <a class="list-group-item active" href="#botonesDos" data-toggle="collapse">ALMACEN</a>
-                                    <div class="collapse show" id="botonesDos">
-                                        <a class="list-group-item list-group-item-action" href="#list-item-3">&ensp;Agregar Nuevo</a>
-                                        <a class="list-group-item list-group-item-action" href="#list-item-4">&ensp;Editar</a>
-                                    </div>
-                                    <a class="list-group-item active" href="#botonesTres" data-toggle="collapse">USUARIOS</a>
-                                    <div class="collapse show" id="botonesTres">
-                                        <a class="list-group-item list-group-item-action" href="../Usuarios/AgregarUsuario.aspx">&ensp;Agregar</a>
-                                        <a class="list-group-item list-group-item-action" href="#list-item-4">&ensp;Editar</a>
-                                        <a class="list-group-item list-group-item-action" href="#list-item-3">&ensp;Asignar Perfil</a>
-                                    </div>
-                                    <a class="list-group-item active" href="#botonesCuatro" data-toggle="collapse">PERFILES</a>
-                                    <div class="collapse show" id="botonesCuatro">
-                                        <a class="list-group-item list-group-item-action" href="#list-item-3">&ensp;Agregar</a>
-                                        <a class="list-group-item list-group-item-action" href="#list-item-4">&ensp;Editar</a>
-                                    </div>
-                                    <a class="list-group-item active" href="#botonesCinco" data-toggle="collapse">GESTION STOCK</a>
-                                    <div class="collapse show" id="botonesCinco">
-                                        <a class="list-group-item list-group-item-action" href="#list-item-3">&ensp;Imprimir Etiqueta</a>
-                                        <a class="list-group-item list-group-item-action" href="#list-item-4">&ensp;Modificar Stock</a>
-                                        <a class="list-group-item list-group-item-action" href="#list-item-4">&ensp;Asignar articulo</a>
-                                    </div>
-                                    <a class="list-group-item active" href="#botonesSeis" data-toggle="collapse">REPORTES</a>
-                                    <div class="collapse show" id="botonesSeis">
-                                        <a class="list-group-item list-group-item-action" href="#list-item-3">&ensp;Ver</a>
-                                    </div>
-                                    <a class="list-group-item active" href="#botonesSiete" data-toggle="collapse">HISTORIAL</a>
-                                    <div class="collapse show" id="botonesSiete">
-                                        <a class="list-group-item list-group-item-action" href="#list-item-3">&ensp;Ver</a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="col-md-9 bg-danger">
-                            <div class="row">
-                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                                </asp:ContentPlaceHolder>
-                                <hr />
-                                <div class="container h-100">
-                                    <footer>
-                                        <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
-                                    </footer>
-                                </div>
-                            </div>
-                        </div>
-
+                <div class="list-group" style="width: 100%">
+                    <a class="list-group-item active" href="#botonesUno" data-toggle="collapse">ARTICULO</a>
+                    <div class="collapse show" id="botonesUno">
+                        <a class="list-group-item list-group-item-action" href="../Articulos/AgregarArticuloMasv.aspx">&ensp;Agregar Maviso</a>
+                        <a class="list-group-item list-group-item-action" href="#list-item-4">&ensp;Agregar Individual</a>
+                        <a class="list-group-item list-group-item-action" href="#list-item-3">&ensp;Agregar Editar</a>
+                    </div>
+                    <a class="list-group-item active" href="#botonesDos" data-toggle="collapse">ALMACEN</a>
+                    <div class="collapse show" id="botonesDos">
+                        <a class="list-group-item list-group-item-action" href="#list-item-3">&ensp;Agregar Nuevo</a>
+                        <a class="list-group-item list-group-item-action" href="#list-item-4">&ensp;Editar</a>
+                    </div>
+                    <a class="list-group-item active" href="#botonesTres" data-toggle="collapse">USUARIOS</a>
+                    <div class="collapse show" id="botonesTres">
+                        <a class="list-group-item list-group-item-action" href="../Usuarios/AgregarUsuario.aspx">&ensp;Agregar</a>
+                        <a class="list-group-item list-group-item-action" href="#list-item-4">&ensp;Editar</a>
+                        <a class="list-group-item list-group-item-action" href="#list-item-3">&ensp;Asignar Perfil</a>
+                    </div>
+                    <a class="list-group-item active" href="#botonesCuatro" data-toggle="collapse">PERFILES</a>
+                    <div class="collapse show" id="botonesCuatro">
+                        <a class="list-group-item list-group-item-action" href="#list-item-3">&ensp;Agregar</a>
+                        <a class="list-group-item list-group-item-action" href="#list-item-4">&ensp;Editar</a>
+                    </div>
+                    <a class="list-group-item active" href="#botonesCinco" data-toggle="collapse">GESTION STOCK</a>
+                    <div class="collapse show" id="botonesCinco">
+                        <a class="list-group-item list-group-item-action" href="#list-item-3">&ensp;Imprimir Etiqueta</a>
+                        <a class="list-group-item list-group-item-action" href="#list-item-4">&ensp;Modificar Stock</a>
+                        <a class="list-group-item list-group-item-action" href="#list-item-4">&ensp;Asignar articulo</a>
+                    </div>
+                    <a class="list-group-item active" href="#botonesSeis" data-toggle="collapse">REPORTES</a>
+                    <div class="collapse show" id="botonesSeis">
+                        <a class="list-group-item list-group-item-action" href="#list-item-3">&ensp;Ver</a>
+                    </div>
+                    <a class="list-group-item active" href="#botonesSiete" data-toggle="collapse">HISTORIAL</a>
+                    <div class="collapse show" id="botonesSiete">
+                        <a class="list-group-item list-group-item-action" href="#list-item-3">&ensp;Ver</a>
                     </div>
                 </div>
-            </form>
-        </div>
-    </div>
 
+            </div>
+        </div>
+
+        <div class="col-md-9 bg-danger">
+            <div class="row">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+                <hr />
+                <div class="container h-100">
+                    <footer>
+                        <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                    </footer>
+                </div>
+            </div>
+        </div>
+
+        </div>
+                </div>
+            </div>
+        </div>
+    </form>
 </body>
 </html>
