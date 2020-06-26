@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div>
+    <div class="container">
 
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb" style="background-color: rgb(229,240,232)">

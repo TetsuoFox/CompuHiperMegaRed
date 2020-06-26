@@ -32,9 +32,6 @@
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
                 <%--Framework Scripts--%>
                 <asp:ScriptReference Name="MsAjaxBundle" />
-                <%--Bundling is a new feature in ASP.NET 4.5 that makes it easy to combine or bundle multiple files into a single file.
-                        You can create CSS, JavaScript and other bundles. Fewer files means fewer HTTP requests and that can improve first
-                        page load performance.--%>
                 <asp:ScriptReference Name="jquery" />
                 <asp:ScriptReference Name="bootstrap" />
                 <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
