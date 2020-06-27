@@ -24,7 +24,7 @@ namespace YoApruebo
             dt = ingreso.getPerfil(queryperfil);
            
             ListItem i;
-            
+            listPerfil.Items.Clear();
             foreach (DataRow r in dt.Rows)
             {
                 i = new ListItem(r["perfil"].ToString());

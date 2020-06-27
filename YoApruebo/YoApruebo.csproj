@@ -124,7 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="Almacenes\Agregar Almacenes\agregarAlmacenesPage.aspx" />
+    <Content Include="Almacenes\agregarAlmacenesPage.aspx" />
     <Content Include="Articulos\AgregarArchivo.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -279,11 +279,11 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Almacenes\Agregar Almacenes\agregarAlmacenesPage.aspx.cs">
+    <Compile Include="Almacenes\agregarAlmacenesPage.aspx.cs">
       <DependentUpon>agregarAlmacenesPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Almacenes\Agregar Almacenes\agregarAlmacenesPage.aspx.designer.cs">
+    <Compile Include="Almacenes\agregarAlmacenesPage.aspx.designer.cs">
       <DependentUpon>agregarAlmacenesPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Articulos\AgregarArchivo.aspx.cs">
