@@ -12,7 +12,7 @@
             </ol>
         </nav>
         <div class="card card-body">
-
+  
                 <div class="form-group row">
                     <div class="col-sm-1">
                         <label class="form-label">Rut: </label>
