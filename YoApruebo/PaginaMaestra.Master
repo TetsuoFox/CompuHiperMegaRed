@@ -56,7 +56,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="container-fluid "style="width: 100%; height:100%; margin-top:56px"> 
+        <div class="container-fluid " style="width: 100%; height: 100%; margin-top: 56px">
             <div class="row">
                 <div class="container-fluid">
                     <div class="row">
@@ -85,7 +85,7 @@
             </div>
 
             <div class="row">
-                <div class="col-sm anchojacob "style="background-color:Gray;">
+                <div class="col-sm anchojacob " style="background-color: Gray;">
                     <div class="row">
 
                         <div class="list-group" style="width: 100%">
@@ -132,6 +132,13 @@
 
                 <div class="col-sm bg-light">
                     <div class="row">
+                        <nav aria-label="breadcrumb" style="width:100%">
+                            <ol class="breadcrumb" style="background-color: rgb(229,240,232)">
+                                <li class="breadcrumb-item"><a href="../Home.aspx">Inicio</a></li>
+                                <li class="breadcrumb-item active">Usuarios</li>
+                                <li class="breadcrumb-item active">Agregar Usuarios</li>
+                            </ol>
+                        </nav>
                         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                         </asp:ContentPlaceHolder>
                         <hr />
@@ -142,6 +149,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </form>
