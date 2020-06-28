@@ -3,7 +3,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>Gestionar Almacenes</h1>
     <div class="card card-body">
-        <h2>Agregar Nuevo Almacen</h2>
+         <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" style="background-color: rgb(229,240,232)">
+                <li class="breadcrumb-item"><a href="../Home.aspx">Inicio</a></li>
+                <li class="breadcrumb-item active">Gestionar Almacenes</li>
+                <li class="breadcrumb-item active">Agregar Nuevo Almacen</li>
+            </ol>
+        </nav>
+  
         <hr style="width: 50%">
 
         <div class="input-group lg mb-3">
