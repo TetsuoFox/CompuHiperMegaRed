@@ -10,7 +10,16 @@ namespace YoApruebo.BLL
     {
         DAL.BD bd = new DAL.BD();
 
-        public bool getUseryPass (String query, string password)
+
+        public bool authenticaticateUser(string user, string pass)
+        {
+            string query = "SELECT USUARIO, PASSWORD FROM USUARIO WHERE USUARIO ='" + user + "';";
+            bool respuesta = getUseryPass(query, pass);
+            return respuesta;
+
+        }
+
+        public bool getUseryPass (string query, string password)
         {
             DataTable dt = bd.getDataTable(query, bd.getConexion("SQL"));
 

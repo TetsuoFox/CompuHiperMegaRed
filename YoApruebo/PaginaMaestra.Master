@@ -16,6 +16,7 @@
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
+    <%--External Font--%>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
 
     <%--Custom Style CSS--%>
@@ -55,6 +56,7 @@
 
 </head>
 <body>
+
     <form id="form1" runat="server">
 
         <%--ASP ScriptManager--%>
@@ -144,7 +146,7 @@
             </div>
         </div>
 
-        <%--Content Container--%>
+        <%--Content--%>
         <div class="container-fluid main-collapse">
             <div class="row">
                 <div class="col-sm" style="min-width: 207px; max-width: 207px"></div>
@@ -173,7 +175,7 @@
                 </div>
             </div>
         </div>
+
     </form>
 </body>
 </html>
-

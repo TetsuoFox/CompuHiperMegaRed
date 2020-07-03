@@ -6,7 +6,6 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>CompuMundoHiperMegaRed</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <style type="text/css">
         minimo {
@@ -30,27 +29,24 @@
             <div class="col-sm border p-4">
                 <form id="form1" runat="server" dir="ltr">
                     <div>
-                        <h5><b>Iniciar sesión</b></h5>
+                        <h5><b>Iniciar Sesión</b></h5>
                     </div>
                     <div class="mt-4">
-                        <label for="exampleInputEmail1">Email address</label>
-
+                        <label for="exampleInputEmail1">Email Address</label>
                     </div>
                     <div class="form-group">
-                        <asp:TextBox class="form-control" ID="textUser" runat="server"></asp:TextBox>
+                        <%--TextMode="Email"--%>
+                        <asp:TextBox class="form-control" ID="textUser" runat="server" ></asp:TextBox>
                     </div>
-
                     <div>
                         <label for="exampleInputPassword1">Password</label>
                     </div>
                     <div class="form-group">
-                        <asp:TextBox class="form-control" ID="textPassword" runat="server"></asp:TextBox>
+                        <asp:TextBox class="form-control" ID="textPassword" runat="server" TextMode="Password"></asp:TextBox>
                     </div>
-
                     <asp:Button ID="btnentrar" runat="server" Text="Button" OnClick="btnentrar_Click1" />
-
-                    <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
-
+                    <asp:Label ID="Label1" runat="server" Text="">
+                    </asp:Label>
                 </form>
             </div>
             <div class="col-sm">
