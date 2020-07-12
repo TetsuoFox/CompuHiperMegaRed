@@ -11,6 +11,8 @@
                 <li class="breadcrumb-item active">Agregar Usuarios</li>
             </ol>
         </nav>
+          <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
         <div class="card card-body">
   
                 <div class="form-group row">
@@ -105,6 +107,7 @@
                         <asp:TextBox class="form-control" ID="textDireccion" runat="server" placeholder="Calle Falsa 123"></asp:TextBox>
                     </div>
                 </div>
+      
 
                 <div class="form-group row">
                     <div class="col-sm-1">
@@ -112,6 +115,7 @@
 
                     <div class="col-sm-7">
                         <asp:Button ID="AgregarUsuario" value="AgregarUsuario" class="btn btn-success btn-block" runat="server" Text="Agregar Usuario" OnClick="AgregarUsuario_Click" />
+                        <asp:Button ID="ModificarUsuario" value="AgregarUsuario" class="btn btn-success btn-block" runat="server" Text="Modificar Usuario" visible="false" OnClick="ModificarUsuario_Click" />
                     </div>
                     <div class="col-sm-1"></div>
                 </div>
@@ -125,8 +129,34 @@
                         <asp:Label ID="lblAd2" runat="server" ForeColor="Red"></asp:Label>
                     </div>
                 </div>
-
+                     </ContentTemplate>
+        </asp:UpdatePanel>
 
         </div>
+         <asp:UpdatePanel ID="uptabla" runat="server">
+            <ContentTemplate>
+
+                <div class="row">
+                    <div class="col-sm-8">
+
+                        <asp:GridView ID="tblUsuario" runat="server" class="table" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" OnSelectedIndexChanged="tblUsuario_SelectedIndexChanged" OnRowDeleting="tblUsuario_RowDeleting">
+                            <Columns>
+                                <asp:CommandField HeaderText="Acciones" ShowDeleteButton="True" ShowCancelButton="False"/>
+                            </Columns>
+                            <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
+                            <HeaderStyle BackColor="#003399" Font-Bold="True" ForeColor="#CCCCFF" />
+                            <PagerStyle BackColor="#99CCCC" ForeColor="#003399" HorizontalAlign="Left" />
+                            <RowStyle BackColor="White" ForeColor="#003399" />
+                            <SelectedRowStyle BackColor="#009999" Font-Bold="True" ForeColor="#CCFF99" />
+                            <SortedAscendingCellStyle BackColor="#EDF6F6" />
+                            <SortedAscendingHeaderStyle BackColor="#0D4AC4" />
+                            <SortedDescendingCellStyle BackColor="#D6DFDF" />
+                            <SortedDescendingHeaderStyle BackColor="#002876" />
+                        </asp:GridView>
+                    </div>
+                
+            </ContentTemplate>
+        </asp:UpdatePanel>
+
     </div>
 </asp:Content>

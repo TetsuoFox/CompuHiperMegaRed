@@ -13,7 +13,7 @@ namespace SuperMundoHiperMegaRed
         {
             if (HttpContext.Current.Session["authorized"] == "NO")
             {
-                Response.Redirect("index.aspx");
+                Response.Redirect("~/index.aspx");
             }
         }
     }
