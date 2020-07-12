@@ -10,20 +10,21 @@ using System.Web.UI.WebControls;
 
 namespace YoApruebo
 {
-    public partial class _Usuario: Page
+    public partial class _Usuario : Page
     {
-        
+        static string rutt;
         string idpersona;
         string idperfil;
-        DataTable dt; 
+        static string userr;
+        DataTable dt;
         YoApruebo.BLL.Rut rut = new YoApruebo.BLL.Rut();
         YoApruebo.BLL.Ingreso ingreso = new YoApruebo.BLL.Ingreso();
         protected void Page_Load(object sender, EventArgs e)
-        { 
+        {
             string queryperfil = "select id_perfil, perfil from Perfil";
-      
+
             dt = ingreso.getPerfil(queryperfil);
-           
+
             ListItem i;
             listPerfil.Items.Clear();
             foreach (DataRow r in dt.Rows)
@@ -36,19 +37,19 @@ namespace YoApruebo
 
         protected void AgregarUsuario_Click(object sender, EventArgs e)
         {
-            
+
 
             if (textPass1.Text.Equals(textPass2.Text))
             {
-                string query = "Insert into Persona (nombre, apellido, cargo, correo, telefono, direccion, rut, dv, estado) values ('"+textNombre.Text+"','"+textApellido.Text+"','"+textCargo.Text+"','"+textCorreo.Text+"','"+textTelefono.Text+"','"+textDireccion.Text+"','"+textRut.Text+"','"+textDV.Text+"',1)";
+                string query = "Insert into Persona (nombre, apellido, cargo, correo, telefono, direccion, rut, dv, estado) values ('" + textNombre.Text + "','" + textApellido.Text + "','" + textCargo.Text + "','" + textCorreo.Text + "','" + textTelefono.Text + "','" + textDireccion.Text + "','" + textRut.Text + "','" + textDV.Text + "',1)";
                 ingreso.ingresar(query);
                 string queryidperso = "select id_persona from persona where rut='" + textRut.Text + "'";
                 DataTable dt2 = ingreso.getPerfil(queryidperso);
                 foreach (DataRow r in dt2.Rows)
                 {
-                   idpersona = r["id_persona"].ToString();
+                    idpersona = r["id_persona"].ToString();
                 }
-                string queryperfil = "select id_perfil from Perfil where perfil = '"+listPerfil.SelectedValue+"'";
+                string queryperfil = "select id_perfil from Perfil where perfil = '" + listPerfil.SelectedValue + "'";
                 DataTable dt3 = ingreso.getPerfil(queryperfil);
 
                 foreach (DataRow r in dt3.Rows)
@@ -59,9 +60,10 @@ namespace YoApruebo
                 string queryuser = "insert into usuario (usuario, password, id_persona, id_perfil, estado) values ('" + textUsuario.Text + "','" + textPass1.Text + "','" + idpersona + "','" + idperfil + "',1)";
                 ingreso.ingresar(queryuser);
                 llenaTabla();
-                
+
             }
-            else {
+            else
+            {
                 lblAd.Text = "Las Contraseña no coinciden";
                 textPass2.CssClass = "form-control is-invalid";
                 textPass1.CssClass = "form-control is-invalid";
@@ -72,12 +74,13 @@ namespace YoApruebo
                 textRut.CssClass = "form-control is-invalid";
                 lblAd2.Text = "Faltan datos por ingresar";
             }
-            else { 
-            
+            else
+            {
+
             }
             if (textNombre.Text.Equals(""))
             {
-            textNombre.CssClass = "form-control is-invalid";
+                textNombre.CssClass = "form-control is-invalid";
                 lblAd2.Text = "Faltan datos por ingresar";
             }
             if (textApellido.Text.Equals(""))
@@ -125,10 +128,10 @@ namespace YoApruebo
                 textPass2.CssClass = "form-control is-invalid";
                 lblAd2.Text = "Faltan datos por ingresar";
             }
-           
+
         }
 
-        
+
         protected void textRut_TextChanged(object sender, EventArgs e)
         {
 
@@ -152,45 +155,41 @@ namespace YoApruebo
             DataTable tabla = ingreso.getPerfil(query);
             tblUsuario.DataSource = tabla;
             tblUsuario.DataBind();
-           
-        }
-        public void llenaTabla()
-        {
-            String query = "select Usuario, Nombre, Apellido, RUT, DV, Cargo, Correo, Telefono, Direccion from usuario u inner join persona p on u.ID_PERSONA = p.ID_PERSONA where u.ESTADO = 1 and p.ESTADO = 1 ";
-            DataTable tabla = ingreso.getPerfil(query);
-            tblUsuario.DataSource = tabla;
-            tblUsuario.DataBind();
 
         }
+      
 
         protected void textRut_Leave(object sender, EventArgs e)
         {
-            
+
 
 
         }
 
         protected void tblUsuario_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-           
+
+
         }
 
 
         protected void tblUsuario_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             string usuario = tblUsuario.Rows[e.RowIndex].Cells[1].Text.ToString();
+            userr = usuario;
             string nombre = tblUsuario.Rows[e.RowIndex].Cells[2].Text.ToString();
             string apellido = tblUsuario.Rows[e.RowIndex].Cells[3].Text.ToString();
-            string rut = tblUsuario.Rows[e.RowIndex].Cells[4].Text.ToString();
+            rutt = tblUsuario.Rows[e.RowIndex].Cells[4].Text.ToString();
             string dv = tblUsuario.Rows[e.RowIndex].Cells[5].Text.ToString();
+            string cargo = tblUsuario.Rows[e.RowIndex].Cells[6].Text.ToString();
             string correo = tblUsuario.Rows[e.RowIndex].Cells[7].Text.ToString();
             string telefono = tblUsuario.Rows[e.RowIndex].Cells[8].Text.ToString();
             string direccion = tblUsuario.Rows[e.RowIndex].Cells[9].Text.ToString();
             textUsuario.Text = usuario;
             textNombre.Text = nombre;
             textApellido.Text = apellido;
-            textRut.Text = rut;
+            textRut.Text = rutt;
+            textCargo.Text = cargo;
             textDV.Text = dv;
             textCorreo.Text = correo;
             textTelefono.Text = telefono;
@@ -207,17 +206,21 @@ namespace YoApruebo
             textPass1.CssClass = "form-control border-secondary";
             textPass2.CssClass = "form-control border-secondary";
             AgregarUsuario.Visible = false;
-            ModificarUsuario.Visible = true;
+            ModificarUser.Visible = true;
             textNombre.Focus();
         }
 
-        protected void ModificarUsuario_Click(object sender, EventArgs e)
+
+
+        protected void ModificarUser_Click(object sender, EventArgs e)
         {
+            Response.Write("<script>alert('probando')</script>");
             if (textPass1.Text.Equals(textPass2.Text))
+
             {
-                string query = "Insert into Persona (nombre, apellido, cargo, correo, telefono, direccion, rut, dv, estado) values ('" + textNombre.Text + "','" + textApellido.Text + "','" + textCargo.Text + "','" + textCorreo.Text + "','" + textTelefono.Text + "','" + textDireccion.Text + "','" + textRut.Text + "','" + textDV.Text + "',1)";
+                string query = "update Persona set nombre = '" + textNombre.Text + "', apellido = '" + textApellido.Text + "', cargo = '" + textCargo.Text + "', correo = '" + textCorreo.Text + "', telefono = '" + textTelefono.Text + "', direccion = '" + textDireccion.Text + "' where rut = '" + rutt + "'";
                 ingreso.ingresar(query);
-                string queryidperso = "select id_persona from persona where rut='" + textRut.Text + "'";
+                string queryidperso = "select id_persona from persona where rut='" + rutt + "'";
                 DataTable dt2 = ingreso.getPerfil(queryidperso);
                 foreach (DataRow r in dt2.Rows)
                 {
@@ -231,9 +234,13 @@ namespace YoApruebo
                     idperfil = r["id_perfil"].ToString();
                 }
 
-                string queryuser = "insert into usuario (usuario, password, id_persona, id_perfil, estado) values ('" + textUsuario.Text + "','" + textPass1.Text + "','" + idpersona + "','" + idperfil + "',1)";
+                string queryuser = "update Usuario set usuario = '" + textUsuario.Text + "', password= '" + textPass1.Text + "', id_persona = '" + idpersona + "', id_perfil = '" + idperfil + "' where usuario ='" + userr + "'";
                 ingreso.ingresar(queryuser);
+                AgregarUsuario.Visible = true;
+                ModificarUser.Visible = false;
                 llenaTabla();
+                
+
 
             }
             else
@@ -241,8 +248,17 @@ namespace YoApruebo
                 lblAd.Text = "Las Contraseña no coinciden";
                 textPass2.CssClass = "form-control is-invalid";
                 textPass1.CssClass = "form-control is-invalid";
+
             }
         }
+        public void llenaTabla()
+        {
+            String query = "select Usuario, Nombre, Apellido, RUT, DV, Cargo, Correo, Telefono, Direccion from usuario u inner join persona p on u.ID_PERSONA = p.ID_PERSONA where u.ESTADO = 1 and p.ESTADO = 1 ";
+            DataTable tabla = ingreso.getPerfil(query);
+            tblUsuario.DataSource = tabla;
+            tblUsuario.DataBind();
+
+        }
+
     }
-        
-    }
+}

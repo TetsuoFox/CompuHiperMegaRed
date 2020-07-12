@@ -115,8 +115,8 @@
 
                     <div class="col-sm-7">
                         <asp:Button ID="AgregarUsuario" value="AgregarUsuario" class="btn btn-success btn-block" runat="server" Text="Agregar Usuario" OnClick="AgregarUsuario_Click" />
-                        <asp:Button ID="ModificarUsuario" value="AgregarUsuario" class="btn btn-success btn-block" runat="server" Text="Modificar Usuario" visible="false" OnClick="ModificarUsuario_Click" />
-                    </div>
+                        <asp:Button ID="ModificarUser" runat="server" Text="Modificar Usuario" class="btn btn-warning btn-block" visible="false" OnClick="ModificarUser_Click"/>
+                        </div>
                     <div class="col-sm-1"></div>
                 </div>
                 <div class="form-group row">
