@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuperMundoHiperMegaRed;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -166,90 +167,53 @@ namespace YoApruebo
 
         }
 
-        protected void tblUsuario_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-
-        }
+   
 
 
         protected void tblUsuario_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            string usuario = tblUsuario.Rows[e.RowIndex].Cells[1].Text.ToString();
-            userr = usuario;
-            string nombre = tblUsuario.Rows[e.RowIndex].Cells[2].Text.ToString();
-            string apellido = tblUsuario.Rows[e.RowIndex].Cells[3].Text.ToString();
-            rutt = tblUsuario.Rows[e.RowIndex].Cells[4].Text.ToString();
-            string dv = tblUsuario.Rows[e.RowIndex].Cells[5].Text.ToString();
-            string cargo = tblUsuario.Rows[e.RowIndex].Cells[6].Text.ToString();
-            string correo = tblUsuario.Rows[e.RowIndex].Cells[7].Text.ToString();
-            string telefono = tblUsuario.Rows[e.RowIndex].Cells[8].Text.ToString();
-            string direccion = tblUsuario.Rows[e.RowIndex].Cells[9].Text.ToString();
-            textUsuario.Text = usuario;
-            textNombre.Text = nombre;
-            textApellido.Text = apellido;
-            textRut.Text = rutt;
-            textCargo.Text = cargo;
-            textDV.Text = dv;
-            textCorreo.Text = correo;
-            textTelefono.Text = telefono;
-            textDireccion.Text = direccion;
-
-            textUsuario.CssClass = "form-control border-secondary";
-            textNombre.CssClass = "form-control border-secondary";
-            textApellido.CssClass = "form-control border-secondary";
-            textRut.Enabled = false;
-            textDV.Enabled = false;
-            textCorreo.CssClass = "form-control border-secondary";
-            textTelefono.CssClass = "form-control border-secondary";
-            textDireccion.CssClass = "form-control border-secondary";
-            textPass1.CssClass = "form-control border-secondary";
-            textPass2.CssClass = "form-control border-secondary";
-            AgregarUsuario.Visible = false;
-            ModificarUser.Visible = true;
-            textNombre.Focus();
+            
         }
 
-
-
-        protected void ModificarUser_Click(object sender, EventArgs e)
+        protected void ModificarU_Click(object sender, EventArgs e)
         {
-            Response.Write("<script>alert('probando')</script>");
-            if (textPass1.Text.Equals(textPass2.Text))
+            Label1.Text = "solo estoy probando que sucede";
+        }
+            protected void ModificarUser_Click(object sender, EventArgs e)
+        {
+            
+      //      if (textPass1.Text.Equals(textPass2.Text)) 
+      //      {
+      //          string query = "update Persona set nombre = '" + textNombre.Text + "', apellido = '" + textApellido.Text + "', cargo = '" + textCargo.Text + "', correo = '" + textCorreo.Text + "', telefono = '" + textTelefono.Text + "', direccion = '" + textDireccion.Text + "' where rut = '" + rutt + "'";
+      //          ingreso.ingresar(query);
+      //          string queryidperso = "select id_persona from persona where rut='" + rutt + "'";
+      //          DataTable dt2 = ingreso.getPerfil(queryidperso);
+      //          foreach (DataRow r in dt2.Rows)
+      //          {
+      //              idpersona = r["id_persona"].ToString();
+      //          }
+      //          string queryperfil = "select id_perfil from Perfil where perfil = '" + listPerfil.SelectedValue + "'";
+      //          DataTable dt3 = ingreso.getPerfil(queryperfil);
 
-            {
-                string query = "update Persona set nombre = '" + textNombre.Text + "', apellido = '" + textApellido.Text + "', cargo = '" + textCargo.Text + "', correo = '" + textCorreo.Text + "', telefono = '" + textTelefono.Text + "', direccion = '" + textDireccion.Text + "' where rut = '" + rutt + "'";
-                ingreso.ingresar(query);
-                string queryidperso = "select id_persona from persona where rut='" + rutt + "'";
-                DataTable dt2 = ingreso.getPerfil(queryidperso);
-                foreach (DataRow r in dt2.Rows)
-                {
-                    idpersona = r["id_persona"].ToString();
-                }
-                string queryperfil = "select id_perfil from Perfil where perfil = '" + listPerfil.SelectedValue + "'";
-                DataTable dt3 = ingreso.getPerfil(queryperfil);
+      //          foreach (DataRow r in dt3.Rows)
+      //          {
+      //              idperfil = r["id_perfil"].ToString();
+      //          }
 
-                foreach (DataRow r in dt3.Rows)
-                {
-                    idperfil = r["id_perfil"].ToString();
-                }
-
-                string queryuser = "update Usuario set usuario = '" + textUsuario.Text + "', password= '" + textPass1.Text + "', id_persona = '" + idpersona + "', id_perfil = '" + idperfil + "' where usuario ='" + userr + "'";
-                ingreso.ingresar(queryuser);
-                AgregarUsuario.Visible = true;
-                ModificarUser.Visible = false;
-                llenaTabla();
-                
-
-
-            }
-            else
-            {
-                lblAd.Text = "Las Contraseña no coinciden";
-                textPass2.CssClass = "form-control is-invalid";
-                textPass1.CssClass = "form-control is-invalid";
-
-            }
+      //          string queryuser = "update Usuario set usuario = '" + textUsuario.Text + "', password= '" + textPass1.Text + "', id_persona = '" + idpersona + "', id_perfil = '" + idperfil + "' where usuario ='" + userr + "'";
+      //          ingreso.ingresar(queryuser);
+      //          llenaTabla(); 
+      //          AgregarUsuario.Visible = true;
+      //          ModificarUser.Visible = false;
+      
+      ////          Response.Redirect("Agregarusuario.aspx");
+      //       }
+      //      else
+      //      {
+      //          lblAd.Text = "Las Contraseña no coinciden";
+      //          textPass2.CssClass = "form-control is-invalid";
+      //          textPass1.CssClass = "form-control is-invalid";
+      //      }
         }
         public void llenaTabla()
         {
@@ -260,5 +224,53 @@ namespace YoApruebo
 
         }
 
+        protected void tblUsuario_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+          
+        }
+
+        protected void tblUsuario_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        {
+            string usuario = tblUsuario.Rows[e.NewSelectedIndex].Cells[1].Text.ToString();
+            userr = usuario;
+            string nombre = tblUsuario.Rows[e.NewSelectedIndex].Cells[2].Text.ToString();
+            string apellido = tblUsuario.Rows[e.NewSelectedIndex].Cells[3].Text.ToString();
+            rutt = tblUsuario.Rows[e.NewSelectedIndex].Cells[4].Text.ToString();
+            string dv = tblUsuario.Rows[e.NewSelectedIndex].Cells[5].Text.ToString();
+            string cargo = tblUsuario.Rows[e.NewSelectedIndex].Cells[6].Text.ToString();
+            string correo = tblUsuario.Rows[e.NewSelectedIndex].Cells[7].Text.ToString();
+            string telefono = tblUsuario.Rows[e.NewSelectedIndex].Cells[8].Text.ToString();
+            string direccion = tblUsuario.Rows[e.NewSelectedIndex].Cells[9].Text.ToString();
+            textUsuario.Text = usuario;
+            textNombre.Text = nombre;
+            textApellido.Text = apellido;
+            textRut.Text = rutt;
+            textCargo.Text = cargo;
+            textDV.Text = dv;
+            textCorreo.Text = correo;
+            textTelefono.Text = telefono;
+            textDireccion.Text = direccion;
+            textUsuario.CssClass = "form-control border-secondary";
+            textNombre.CssClass = "form-control border-secondary";
+            textApellido.CssClass = "form-control border-secondary";
+            textRut.Enabled = false;
+            textDV.Enabled = false;
+            textUsuario.Enabled = false;
+            textCorreo.CssClass = "form-control border-secondary";
+            textTelefono.CssClass = "form-control border-secondary";
+            textDireccion.CssClass = "form-control border-secondary";
+            textPass1.CssClass = "form-control border-secondary";
+            textPass2.CssClass = "form-control border-secondary";
+            AgregarUsuario.Visible = false;
+            ModificarUser.Visible = true;
+            delPersona.Visible = true;
+            delUsuario.Visible = true;
+            textNombre.Focus();
+        }
+
+        protected void tblUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
