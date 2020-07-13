@@ -45,8 +45,10 @@ namespace SuperMundoHiperMegaRed.Almacenes.Agregar_Almacenes
                 DataTable tabla = insertarBD.getPerfil(query);
                 tblAlmacenes.DataSource = tabla;
                 tblAlmacenes.DataBind();
+            tblAlmacenes.HeaderRow.CssClass = "thead-dark"; 
 
-            }
+
+        }
 
         
 

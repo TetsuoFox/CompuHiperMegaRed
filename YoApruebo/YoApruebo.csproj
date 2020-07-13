@@ -125,6 +125,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="Almacenes\agregarAlmacenesPage.aspx" />
+    <Content Include="Almacenes\editarAlmacenPage.aspx" />
     <Content Include="Articulos\AgregarArchivo.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -285,6 +286,14 @@
     </Compile>
     <Compile Include="Almacenes\agregarAlmacenesPage.aspx.designer.cs">
       <DependentUpon>agregarAlmacenesPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Almacenes\almacen.cs" />
+    <Compile Include="Almacenes\editarAlmacenPage.aspx.cs">
+      <DependentUpon>editarAlmacenPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Almacenes\editarAlmacenPage.aspx.designer.cs">
+      <DependentUpon>editarAlmacenPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="Articulos\AgregarArchivo.aspx.cs">
       <DependentUpon>AgregarArchivo.aspx</DependentUpon>
