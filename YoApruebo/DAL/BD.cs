@@ -5,6 +5,8 @@ using System.Web;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.OleDb;
+using System.Threading.Tasks;
+
 
 namespace YoApruebo.DAL
 {
@@ -26,7 +28,6 @@ namespace YoApruebo.DAL
                     return "";
             }
         }
-
 
         public DataTable getDataTable(string query, string con)
         {
@@ -56,6 +57,14 @@ namespace YoApruebo.DAL
             SqlCommand comando = new SqlCommand(query, conexion);
             comando.ExecuteNonQuery();
             conexion.Close();
+        }
+
+        private string getResultQueryLikeString(string query)
+        {
+            BD DataBase = new BD();
+            DataTable dt = DataBase.getDataTable(query, "SQL");
+            string permists = dt.Rows[0][1].ToString();
+            return permists;
         }
     }
 }
