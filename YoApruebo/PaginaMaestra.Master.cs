@@ -16,84 +16,74 @@ namespace SuperMundoHiperMegaRed
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (HttpContext.Current.Session["authorized"].Equals("NO"))
+            if (!HttpContext.Current.Session["authorized"].Equals("NO"))
             {
                 Response.Redirect("~/index.aspx");
             }
-
-            HtmlGenericControl divcollapse = new HtmlGenericControl("div");
-            divcollapse.ID = "collapseintento";
-            sideBarontainer.Attributes.Add("class", "collapse");
-            sideBarontainer.Controls.Add(divcollapse);
-
-            for (int i = 0; i < 3; i++)
-            {
-                HtmlGenericControl subDiv = new HtmlGenericControl("a");
-                subDiv.Attributes.Add("class", "list-group-item list-group-item-action");
-                subDiv.Attributes.Add("href", "../Articulos/AgregarArticuloMasv.aspx");
-                subDiv.InnerText = "Sub Menu " + i;
-                divcollapse.Controls.Add(subDiv);
-            }
-
+           createSideBar();
         }
 
-
-        private void crearSideBar(string DB_permisos)
+        private void createSideBar()
         {
-            string querys = "asd";
-            string allpermit = (querys);
+            string allpermits = getPermitsUser("jacob");
+            SideBar sidebar = new SideBar(allpermits);
 
-            string[] permits = allpermit.Split('|');
-
-            foreach (string menus in permits)
+            for (int i = 0; i < sidebar.category.Length; i++)
             {
+                string namemenu = sidebar.category[i].getNameCategory();
+                string idcategory = namemenu.Replace(" ", string.Empty) + "collapse";
+                HtmlGenericControl etiquetamenu = createMenu(namemenu, idcategory);
+                sidebarcontainer.Controls.Add(etiquetamenu);
 
-                HtmlGenericControl Menu = createMenu("asd");
-                sideBarontainer.Controls.Add(Menu);
+                HtmlGenericControl divsubmenuscontainer = createDivSubmenusContainer(idcategory);
+                sidebarcontainer.Controls.Add(divsubmenuscontainer);
 
-                sideBarontainer.Controls.Add(createDivSubMenusContainer("sd", "asd"));
+                string[] namesubmenu = sidebar.category[i].getSubNameCategory();
+                string[] linksubmenu = sidebar.category[i].getLinkCategory();
 
-                string[] submenus = menus.Split(',');
-
-                foreach (string j in submenus)
+                for (int j = 0; j < namesubmenu.Length; j++ )
                 {
-                    HtmlGenericControl sub_menu = createSubMenu("nombre", "link");
+                    HtmlGenericControl eqiquetasubmenu = createSubMenu(namesubmenu[j], linksubmenu[j]);
+                    divsubmenuscontainer.Controls.Add(eqiquetasubmenu);
                 }
-
             }
         }
 
-        private HtmlGenericControl createMenu(string name)
+        private HtmlGenericControl createMenu(string namemenu, string idcategory)
         {
             HtmlGenericControl newDiv = new HtmlGenericControl("a");
-            newDiv.ID = "newSuperDIV"; //<---Give and ID to the div, very important!
+            newDiv.ID = "menu";
             newDiv.Attributes.Add("class", "list-group-item active");
-            newDiv.Attributes.Add("href", "#collapseintento");//<---Apply a css class if wanted
+            newDiv.Attributes.Add("href", ("#" + idcategory));
             newDiv.Attributes.Add(" data-toggle", "collapse");
-            newDiv.InnerText = "INTENTO";
-            return newDiv; //<---Add the new div to our already existing div
+            newDiv.InnerText = namemenu;
+            return newDiv;
+        }
+        private HtmlGenericControl createDivSubmenusContainer(string idcategory)
+        {
+            HtmlGenericControl divSubMenusContainer = new HtmlGenericControl("div");
+            divSubMenusContainer.ID = idcategory;
+            divSubMenusContainer.Attributes.Add("class", "collapse");
+            return divSubMenusContainer;
         }
         private HtmlGenericControl createSubMenu(string name, string link)
         {
             HtmlGenericControl subDiv = new HtmlGenericControl("a");
             subDiv.Attributes.Add("class", "list-group-item list-group-item-action");
-            subDiv.Attributes.Add("href", "../Articulos/AgregarArticuloMasv.aspx");
-            subDiv.InnerText = "Sub Menu ";
+            subDiv.Attributes.Add("href", link);
+            subDiv.InnerText = name;
             return subDiv;
-        }
-        private HtmlGenericControl createDivSubMenusContainer(string name, string link)
-        {
-            HtmlGenericControl divSubMenusContainer = new HtmlGenericControl("div");
-            divSubMenusContainer.ID = "collapseintento";
-            divSubMenusContainer.Attributes.Add("class", "collapse");
-            return divSubMenusContainer;
         }
         private string getPermitsUser(string nameUser)
         {
             BD data_base = new BD();
             string query = "SELECT[PERMISOS] FROM[dbo].[PERFIL] INNER JOIN[dbo].[USUARIO] ON[dbo].[USUARIO].[ID_PERFIL] = [dbo].[PERFIL].[ID_PERFIL] WHERE[dbo].[USUARIO].[USUARIO] = '" + nameUser + "';";
-            string permits = data_base.   ;
+            string permits = data_base.getResultQueryLikeString(query);
             return permits;
+        }
+        private string getNameMenu(string permit)
+        {
+            return "";
         }
     }
 }

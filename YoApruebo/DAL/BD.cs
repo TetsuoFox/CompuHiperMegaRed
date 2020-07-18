@@ -14,7 +14,6 @@ namespace YoApruebo.DAL
     {
         string ipServer = @"sql5046.site4now.net";//@"18.217.105.148\PRODUCCION";
         string databaseName = "DB_A62E4D_inacap2020";//"inacap";
-
         public string getConexion(string tipo)
         {
             switch (tipo)
@@ -59,12 +58,13 @@ namespace YoApruebo.DAL
             conexion.Close();
         }
 
-        private string getResultQueryLikeString(string query)
+        public string getResultQueryLikeString(string query)
         {
-            BD DataBase = new BD();
-            DataTable dt = DataBase.getDataTable(query, "SQL");
-            string permists = dt.Rows[0][1].ToString();
+            BD database = new BD();
+            DataTable dt = database.getDataTable(query, database.getConexion("SQL"));
+            string permists = dt.Rows[0][0].ToString();
             return permists;
         }
+
     }
 }

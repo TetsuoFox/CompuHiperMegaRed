@@ -6,6 +6,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
+using YoApruebo.DAL;
 
 namespace YoApruebo
 {
@@ -20,7 +21,9 @@ namespace YoApruebo
         }
         protected void Session_Start(object sender, EventArgs e)
         {
+            BD database = new BD();
             Session["authorized"] = "NO";
+        
         }
     }
 }

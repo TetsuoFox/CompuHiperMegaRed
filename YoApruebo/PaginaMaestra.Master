@@ -106,50 +106,9 @@
         <div class="container-fluid bg-dark sidebarcollapse">
 
             <div class="row">
-                <div class="list-group" style="width: 100%">
+                <div id="sidebarcontainer" runat="server" class="list-group" style="width: 100%">
 
-                    <%--experimeinto--%>
-                    <div id="sideBarontainer" runat="server">
-                        <%--Contenido genrerado en el backent--%>
-                    </div>
-                    <%--End experimeinto--%>
-
-                    <a class="list-group-item active" href="#botonesUno" data-toggle="collapse">ARTICULO</a>
-                    <div class="collapse" id="botonesUno">
-                        <a class="list-group-item list-group-item-action" href="../Articulos/AgregarArticuloMasv.aspx">&ensp;Agregar Maviso</a>
-                        <a class="list-group-item list-group-item-action" href="../Articulos/AgregarArchivo.aspx">&ensp;Agregar Individual</a>
-                        <a class="list-group-item list-group-item-action" href="../Articulos/EditarArticulo.aspx">&ensp;Agregar Editar</a>
-                    </div>
-                    <a class="list-group-item active" href="#botonesDos" data-toggle="collapse">ALMACEN</a>
-                    <div class="collapse" id="botonesDos">
-                        <a class="list-group-item list-group-item-action" href="../Almacenes/agregarAlmacenesPage.aspx">&ensp;Agregar Nuevo</a>
-                        <a class="list-group-item list-group-item-action" href="../Almacenes/editarAlmacenPage.aspx">&ensp;Editar</a>
-                    </div>
-                    <a class="list-group-item active" href="#botonesTres" data-toggle="collapse">USUARIOS</a>
-                    <div class="collapse" id="botonesTres">
-                        <a class="list-group-item list-group-item-action" href="../Usuarios/AgregarUsuario.aspx">&ensp;Agregar</a>
-                        <a class="list-group-item list-group-item-action" href="#list-item-4">&ensp;Editar</a>
-                        <a class="list-group-item list-group-item-action" href="#list-item-3">&ensp;Asignar Perfil</a>
-                    </div>
-                    <a class="list-group-item active" href="#botonesCuatro" data-toggle="collapse">PERFILES</a>
-                    <div class="collapse" id="botonesCuatro">
-                        <a class="list-group-item list-group-item-action" href="#list-item-3">&ensp;Agregar</a>
-                        <a class="list-group-item list-group-item-action" href="#list-item-4">&ensp;Editar</a>
-                    </div>
-                    <a class="list-group-item active" href="#botonesCinco" data-toggle="collapse">GESTION STOCK</a>
-                    <div class="collapse" id="botonesCinco">
-                        <a class="list-group-item list-group-item-action" href="#list-item-3">&ensp;Imprimir Etiqueta</a>
-                        <a class="list-group-item list-group-item-action" href="#list-item-4">&ensp;Modificar Stock</a>
-                        <a class="list-group-item list-group-item-action" href="#list-item-4">&ensp;Asignar articulo</a>
-                    </div>
-                    <a class="list-group-item active" href="#botonesSeis" data-toggle="collapse">REPORTES</a>
-                    <div class="collapse" id="botonesSeis">
-                        <a class="list-group-item list-group-item-action" href="#list-item-3">&ensp;Ver</a>
-                    </div>
-                    <a class="list-group-item active" href="#botonesSiete" data-toggle="collapse">HISTORIAL</a>
-                    <div class="collapse" id="botonesSiete">
-                        <a class="list-group-item list-group-item-action" href="#list-item-3">&ensp;Ver</a>
-                    </div>
+                    
                 </div>
             </div>
         </div>
