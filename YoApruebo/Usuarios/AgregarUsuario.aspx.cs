@@ -175,8 +175,46 @@ namespace YoApruebo
             
         }
 
-       
-           
+        protected void ModificarU_Click(object sender, EventArgs e)
+        {
+            Label1.Text = "solo estoy probando que sucede";
+        }
+            protected void ModificarUser_Click(object sender, EventArgs e)
+        {
+            
+      //      if (textPass1.Text.Equals(textPass2.Text)) 
+      //      {
+      //          string query = "update Persona set nombre = '" + textNombre.Text + "', apellido = '" + textApellido.Text + "', cargo = '" + textCargo.Text + "', correo = '" + textCorreo.Text + "', telefono = '" + textTelefono.Text + "', direccion = '" + textDireccion.Text + "' where rut = '" + rutt + "'";
+      //          ingreso.ingresar(query);
+      //          string queryidperso = "select id_persona from persona where rut='" + rutt + "'";
+      //          DataTable dt2 = ingreso.getPerfil(queryidperso);
+      //          foreach (DataRow r in dt2.Rows)
+      //          {
+      //              idpersona = r["id_persona"].ToString();
+      //          }
+      //          string queryperfil = "select id_perfil from Perfil where perfil = '" + listPerfil.SelectedValue + "'";
+      //          DataTable dt3 = ingreso.getPerfil(queryperfil);
+
+      //          foreach (DataRow r in dt3.Rows)
+      //          {
+      //              idperfil = r["id_perfil"].ToString();
+      //          }
+
+      //          string queryuser = "update Usuario set usuario = '" + textUsuario.Text + "', password= '" + textPass1.Text + "', id_persona = '" + idpersona + "', id_perfil = '" + idperfil + "' where usuario ='" + userr + "'";
+      //          ingreso.ingresar(queryuser);
+      //          llenaTabla(); 
+      //          AgregarUsuario.Visible = true;
+      //          ModificarUser.Visible = false;
+      
+      ////          Response.Redirect("Agregarusuario.aspx");
+      //       }
+      //      else
+      //      {
+      //          lblAd.Text = "Las Contraseña no coinciden";
+      //          textPass2.CssClass = "form-control is-invalid";
+      //          textPass1.CssClass = "form-control is-invalid";
+      //      }
+        }
         public void llenaTabla()
         {
             String query = "select Usuario, Nombre, Apellido, RUT, DV, Cargo, Correo, Telefono, Direccion from usuario u inner join persona p on u.ID_PERSONA = p.ID_PERSONA where u.ESTADO = 1 and p.ESTADO = 1 ";
@@ -224,6 +262,9 @@ namespace YoApruebo
             textPass1.CssClass = "form-control border-secondary";
             textPass2.CssClass = "form-control border-secondary";
             AgregarUsuario.Visible = false;
+            ModificarUser.Visible = true;
+            delPersona.Visible = true;
+            delUsuario.Visible = true;
             textNombre.Focus();
         }
 
