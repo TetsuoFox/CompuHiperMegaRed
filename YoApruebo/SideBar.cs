@@ -14,16 +14,14 @@ namespace SuperMundoHiperMegaRed
         public SideBar(string allpermits)
         {
             if (allpermits.Equals("all"))
-            {
                 allpermits = getAllPermit();
-            }
 
             string[] permits = allpermits.Split('|');
             category = new Categories[permits.Length];
+
             for (int i = 0; i < permits.Length; i++)
-            {
                 category[i] = new Categories(permits[i]);
-            }
+
         }
 
         public string getAllPermit()
@@ -48,60 +46,60 @@ namespace SuperMundoHiperMegaRed
             allpermits = allpermits.Trim(',','|');
             return allpermits;
         }
+    }
 
-        public class Categories
+    public class Categories
+    {
+        private string namemenu;
+        private string[] namesubmenu;
+        private string[] link;
+
+        public Categories(string permits)
         {
-            private string namemenu;
-            private string[] namesubmenu;
-            private string[] link;
+            int k = permits.IndexOf('.');
+            string idnamemenu = permits.Substring(0, k);
+            namemenu = getNameByIdFromDB(idnamemenu);
 
-            public Categories(string permits)
-            {
-                int k = permits.IndexOf('.');
-                string idnamemenu = permits.Substring(0, k);
-                namemenu = getNameByIdFromDB(idnamemenu);
+            string[] idnamesubmenu = permits.Split(',');
+            namesubmenu = new string[idnamesubmenu.Length];
+            link = new string[idnamesubmenu.Length];
 
-                string[] idnamesubmenu = permits.Split(',');
-                namesubmenu = new string[idnamesubmenu.Length];
-                link = new string[idnamesubmenu.Length];
-
-                for (int i = 0; i < idnamesubmenu.Length; i++)
-                {
-                    namesubmenu[i] = getNameByIdFromDB(idnamesubmenu[i]);
-                    Console.WriteLine(namesubmenu[i]);
-                    link[i] = getLinkByIdFromDB(idnamesubmenu[i]);
-                    Console.WriteLine(link[i]);
-                }
-
-            }
-
-            public string getNameByIdFromDB(string id)
+            for (int i = 0; i < idnamesubmenu.Length; i++)
             {
-                BD bd = new BD();
-                string query = "SELECT[dbo].[LISTA_PERMISOS].[NOMBRE]FROM[dbo].[LISTA_PERMISOS]WHERE[dbo].[LISTA_PERMISOS].[ID_PERMISO] = '" + id + "';";
-                string name = bd.getResultQueryLikeString(query);
-                return name;
-            }
-            public string getLinkByIdFromDB(string id)
-            {
-                BD bd = new BD();
-                string query = "SELECT[dbo].[LISTA_PERMISOS].[LINK]FROM[dbo].[LISTA_PERMISOS]WHERE[dbo].[LISTA_PERMISOS].[ID_PERMISO] = '" + id + "';";
-                string link = bd.getResultQueryLikeString(query);
-                return link;
-            }
-            public string getNameCategory()
-            {
-                return namemenu;
-            }
-            public string[] getSubNameCategory()
-            {
-                return namesubmenu;
-            }
-            public string[] getLinkCategory()
-            {
-                return link;
+                namesubmenu[i] = getNameByIdFromDB(idnamesubmenu[i]);
+                Console.WriteLine(namesubmenu[i]);
+                link[i] = getLinkByIdFromDB(idnamesubmenu[i]);
+                Console.WriteLine(link[i]);
             }
 
         }
+
+        public string getNameByIdFromDB(string id)
+        {
+            BD bd = new BD();
+            string query = "SELECT[dbo].[LISTA_PERMISOS].[NOMBRE]FROM[dbo].[LISTA_PERMISOS]WHERE[dbo].[LISTA_PERMISOS].[ID_PERMISO] = '" + id + "';";
+            string name = bd.getResultQueryLikeString(query);
+            return name;
+        }
+        public string getLinkByIdFromDB(string id)
+        {
+            BD bd = new BD();
+            string query = "SELECT[dbo].[LISTA_PERMISOS].[LINK]FROM[dbo].[LISTA_PERMISOS]WHERE[dbo].[LISTA_PERMISOS].[ID_PERMISO] = '" + id + "';";
+            string link = bd.getResultQueryLikeString(query);
+            return link;
+        }
+        public string getNameCategory()
+        {
+            return namemenu;
+        }
+        public string[] getSubNameCategory()
+        {
+            return namesubmenu;
+        }
+        public string[] getLinkCategory()
+        {
+            return link;
+        }
+
     }
 }

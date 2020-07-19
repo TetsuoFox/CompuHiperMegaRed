@@ -16,16 +16,17 @@ namespace SuperMundoHiperMegaRed
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!HttpContext.Current.Session["authorized"].Equals("NO"))
+            if (HttpContext.Current.Session["authorized"].Equals("NO"))
             {
                 Response.Redirect("~/index.aspx");
             }
-           createSideBar();
+            createSideBar();
+            createNavBar();
         }
 
         private void createSideBar()
         {
-            string allpermits = getPermitsUser("jacob");
+            string allpermits = getPermitsUser("jacob");//necesitas hacer session
             SideBar sidebar = new SideBar(allpermits);
 
             for (int i = 0; i < sidebar.category.Length; i++)
@@ -41,14 +42,14 @@ namespace SuperMundoHiperMegaRed
                 string[] namesubmenu = sidebar.category[i].getSubNameCategory();
                 string[] linksubmenu = sidebar.category[i].getLinkCategory();
 
-                for (int j = 0; j < namesubmenu.Length; j++ )
+                for (int j = 0; j < namesubmenu.Length; j++)
                 {
                     HtmlGenericControl eqiquetasubmenu = createSubMenu(namesubmenu[j], linksubmenu[j]);
                     divsubmenuscontainer.Controls.Add(eqiquetasubmenu);
                 }
             }
-        }
 
+        }
         private HtmlGenericControl createMenu(string namemenu, string idcategory)
         {
             HtmlGenericControl newDiv = new HtmlGenericControl("a");
@@ -84,6 +85,15 @@ namespace SuperMundoHiperMegaRed
         private string getNameMenu(string permit)
         {
             return "";
+        }
+
+        public void createNavBar()
+        {
+            nombre_empresa.InnerHtml = "CompuMundo";
+            opcion_uno.InnerHtml = "Opcion1";
+            opcion_dos.InnerHtml = "Opcion2";
+            string name = Session["name"].ToString() + " " + Session["lastname"].ToString();
+            nameuser.InnerHtml = name;
         }
     }
 }

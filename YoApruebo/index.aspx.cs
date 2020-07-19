@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SuperMundoHiperMegaRed;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,36 +17,24 @@ namespace YoApruebo
 
         protected void Page_Load(object sender, EventArgs e)
         {
- 
+    
         }
 
         protected void btnentrar_Click1(object sender, EventArgs e)
         {
-
             if (login.authenticaticateUser(textUser.Text, textPassword.Text))
             {
+                User user = new User(textUser.Text);
                 Session["authorized"] = "SI";
+                Session["nickname"] = textUser.Text;
+                Session["name"] = user.getPersona().getName();
+                Session["lastname"] = user.getPersona().getLastname();
+                Session["cargo"] = user.getPersona().getCargo();
+                Session["direccion"] = user.getPersona().getDireccion();
+                Session["telefono"] = user.getPersona().getTelefono();
                 Response.Redirect("home");
-                //AddUserToSession("textUser.Text");
             }
             Label1.Text = "La contraseña o la clave no son correctas";
-        }
-
-        public static void AddUserToSession(string id)
-        {
-            bool persist = true;
-            // generar cookie de autenticación
-            FormsAuthentication.SetAuthCookie(id, persist);
-            var cookie = FormsAuthentication.GetAuthCookie(id, persist);
-
-            cookie.Name = FormsAuthentication.FormsCookieName;
-            cookie.Expires = DateTime.Now.AddMonths(3);
-
-            var ticket = FormsAuthentication.Decrypt(cookie.Value);
-            var newTicket = new FormsAuthenticationTicket(ticket.Version, ticket.Name, ticket.IssueDate, ticket.Expiration, ticket.IsPersistent, id);
-
-            cookie.Value = FormsAuthentication.Encrypt(newTicket);
-            HttpContext.Current.Response.Cookies.Add(cookie);
         }
     }
 }

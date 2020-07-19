@@ -25,7 +25,10 @@
             font-family: "Roboto";
             font-size: 15px;
         }
-
+        @font-face {
+            font-family: 'Robot';
+            src: url('/font/ROBO.ttf');
+        }
         .sidebarcollapse {
             height: 100%;
             width: 207px;
@@ -81,24 +84,24 @@
         </asp:ScriptManager>
 
         <%--Navbar--%>
+
+
+
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top" style="width: 100%">
-            <a class="navbar-brand" href="#">Fixed navbar</a>
+             <a  id="nombre_empresa" runat="server" class="navbar-brand" href="#" style=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a id="opcion_uno" runat="server" class="nav-link" href="#"></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" href="#">Disabled</a>
+                        <a id="opcion_dos" runat="server" class="nav-link" href="#"></a>
                     </li>
                 </ul>
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <button id="nameuser" runat="server" class="btn btn-outline-success my-2 my-sm-0" type="submit"></button>
             </div>
         </nav>
 
