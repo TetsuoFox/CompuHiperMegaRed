@@ -5,6 +5,8 @@ using System.Web;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.OleDb;
+using System.Threading.Tasks;
+
 
 namespace YoApruebo.DAL
 {
@@ -12,7 +14,6 @@ namespace YoApruebo.DAL
     {
         string ipServer = @"sql5046.site4now.net";//@"18.217.105.148\PRODUCCION";
         string databaseName = "DB_A62E4D_inacap2020";//"inacap";
-
         public string getConexion(string tipo)
         {
             switch (tipo)
@@ -26,7 +27,6 @@ namespace YoApruebo.DAL
                     return "";
             }
         }
-
 
         public DataTable getDataTable(string query, string con)
         {
@@ -57,5 +57,14 @@ namespace YoApruebo.DAL
             comando.ExecuteNonQuery();
             conexion.Close();
         }
+
+        public string getResultQueryLikeString(string query)
+        {
+            BD database = new BD();
+            DataTable dt = database.getDataTable(query, database.getConexion("SQL"));
+            string permists = dt.Rows[0][0].ToString();
+            return permists;
+        }
+
     }
 }

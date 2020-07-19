@@ -303,8 +303,10 @@
     <Compile Include="Articulos\AgregarArchivo.aspx.designer.cs">
       <DependentUpon>AgregarArchivo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="BLL\UserBD.cs" />
     <Compile Include="BLL\Ingreso.cs" />
     <Compile Include="BLL\Rut.cs" />
+    <Compile Include="SideBar.cs" />
     <Compile Include="exTreeView.aspx.cs">
       <DependentUpon>exTreeView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -385,6 +387,7 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="User.cs" />
     <Compile Include="Usuarios\AgregarUsuario.aspx.cs">
       <DependentUpon>AgregarUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
