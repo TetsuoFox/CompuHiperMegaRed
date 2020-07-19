@@ -23,7 +23,6 @@ namespace SuperMundoHiperMegaRed
             createSideBar();
             createNavBar();
         }
-
         private void createSideBar()
         {
             string allpermits = getPermitsUser("jacob");//necesitas hacer session
@@ -94,6 +93,12 @@ namespace SuperMundoHiperMegaRed
             opcion_dos.InnerHtml = "Opcion2";
             string name = Session["name"].ToString() + " " + Session["lastname"].ToString();
             nameuser.InnerHtml = name;
+        }
+
+        void nameuser_Click(Object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("~/index.aspx");
         }
     }
 }

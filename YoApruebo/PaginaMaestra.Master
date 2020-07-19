@@ -85,8 +85,6 @@
 
         <%--Navbar--%>
 
-
-
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top" style="width: 100%">
              <a  id="nombre_empresa" runat="server" class="navbar-brand" href="#" style=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -98,19 +96,17 @@
                         <a id="opcion_uno" runat="server" class="nav-link" href="#"></a>
                     </li>
                     <li class="nav-item">
-                        <a id="opcion_dos" runat="server" class="nav-link" href="#"></a>
+                        <a id="opcion_dos" runat="server" class="nav-link"></a>
                     </li>
                 </ul>
-                <button id="nameuser" runat="server" class="btn btn-outline-success my-2 my-sm-0" type="submit"></button>
+                <button id="nameuser" runat="server" class="btn btn-outline-success my-2 my-sm-0" OnClick="nameuser_Click"></button>
             </div>
         </nav>
 
         <%--SideBar--%>
         <div class="container-fluid bg-dark sidebarcollapse">
-
             <div class="row">
                 <div id="sidebarcontainer" runat="server" class="list-group" style="width: 100%">
-
                     
                 </div>
             </div>
