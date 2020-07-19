@@ -118,31 +118,8 @@
 
                     <div class="col-sm-7">
                         <asp:Button ID="AgregarUsuario" value="AgregarUsuario" class="btn btn-success btn-block" runat="server" Text="Agregar Usuario" OnClick="AgregarUsuario_Click" />
-                        <asp:Button ID="ModificarUser" runat="server" Text="Modificar Usuario" class="btn btn-warning btn-block" visible="false" OnClick="ModificarUser_Click" data-toggle="modal" data-target="#exampleModal"/>
-                        <asp:Button ID="delUsuario" runat="server" Text="Eliminar Usuario" class="btn btn-danger btn-block" visible="false"/>
-                        <asp:Button ID="delPersona" runat="server" Text="Eliminar Persona" class="btn btn-danger btn-block" visible="false"/>
                     </div>
-                    <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <asp:Label ID="Label1" runat="server" Text="prueba"></asp:Label>
-      </div>
-     
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <asp:Button ID="Button1" runat="server" Text="Probando Boton"  class="btn btn-warning btn-block" OnClick="ModificarU_Click"/>
-      </div>
-    </div>
-  </div>
-</div>
+
                     <div class="col-sm-1"></div>
                 </div>
                 <div class="form-group row">
@@ -167,10 +144,6 @@
                     <div class="col-sm-8">
 
                         <asp:GridView ID="tblUsuario" runat="server" class="table" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" OnRowDeleting="tblUsuario_RowDeleting" OnRowEditing="tblUsuario_RowEditing" OnSelectedIndexChanging="tblUsuario_SelectedIndexChanging" OnSelectedIndexChanged="tblUsuario_SelectedIndexChanged">
-                            <Columns>
-                                <asp:CommandField HeaderText="Acciones" ShowDeleteButton="True" ShowCancelButton="true" ShowEditButton="true" ButtonType="Button" ShowSelectButton="True" />
-                            
-                            </Columns>
                             <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
                             <HeaderStyle BackColor="#003399" Font-Bold="True" ForeColor="#CCCCFF" />
                             <PagerStyle BackColor="#99CCCC" ForeColor="#003399" HorizontalAlign="Left" />
