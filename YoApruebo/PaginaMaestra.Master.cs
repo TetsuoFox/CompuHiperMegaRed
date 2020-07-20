@@ -16,30 +16,34 @@ namespace SuperMundoHiperMegaRed
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (HttpContext.Current.Session["authorized"].Equals("NO"))
-            {
+            if (Session["name"].Equals(""))
                 Response.Redirect("~/index.aspx");
-            }
-            createSideBar();
+
+            createSideBar(Session["nickname"].ToString());
             createNavBar();
         }
-        private void createSideBar()
+        private void createSideBar(string nickname)
         {
-            string allpermits = getPermitsUser("jacob");//necesitas hacer session
-            SideBar sidebar = new SideBar(allpermits);
+            string permitslist = BLL.UserBD.getListPermits(nickname);
+            SideBar sidebar = new SideBar(permitslist);
+            createHtmlSideBar(sidebar);
+        }
+
+        public void createHtmlSideBar(SideBar sidebar)
+        {
 
             for (int i = 0; i < sidebar.category.Length; i++)
             {
-                string namemenu = sidebar.category[i].getNameCategory();
-                string idcategory = namemenu.Replace(" ", string.Empty) + "collapse";
-                HtmlGenericControl etiquetamenu = createMenu(namemenu, idcategory);
+                string categoryname = sidebar.category[i].getNameCategory();
+                string idcategory = sidebar.category[i].getIdCategory();
+                string[] namesubmenu = sidebar.category[i].getSubNameCategory();
+                string[] linksubmenu = sidebar.category[i].getLinkCategory();
+
+                HtmlGenericControl etiquetamenu = createCategory(categoryname, idcategory);
                 sidebarcontainer.Controls.Add(etiquetamenu);
 
                 HtmlGenericControl divsubmenuscontainer = createDivSubmenusContainer(idcategory);
                 sidebarcontainer.Controls.Add(divsubmenuscontainer);
-
-                string[] namesubmenu = sidebar.category[i].getSubNameCategory();
-                string[] linksubmenu = sidebar.category[i].getLinkCategory();
 
                 for (int j = 0; j < namesubmenu.Length; j++)
                 {
@@ -47,9 +51,9 @@ namespace SuperMundoHiperMegaRed
                     divsubmenuscontainer.Controls.Add(eqiquetasubmenu);
                 }
             }
-
         }
-        private HtmlGenericControl createMenu(string namemenu, string idcategory)
+
+        private HtmlGenericControl createCategory(string namemenu, string idcategory)
         {
             HtmlGenericControl newDiv = new HtmlGenericControl("a");
             newDiv.ID = "menu";
@@ -74,17 +78,6 @@ namespace SuperMundoHiperMegaRed
             subDiv.InnerText = name;
             return subDiv;
         }
-        private string getPermitsUser(string nameUser)
-        {
-            BD data_base = new BD();
-            string query = "SELECT[PERMISOS] FROM[dbo].[PERFIL] INNER JOIN[dbo].[USUARIO] ON[dbo].[USUARIO].[ID_PERFIL] = [dbo].[PERFIL].[ID_PERFIL] WHERE[dbo].[USUARIO].[USUARIO] = '" + nameUser + "';";
-            string permits = data_base.getResultQueryLikeString(query);
-            return permits;
-        }
-        private string getNameMenu(string permit)
-        {
-            return "";
-        }
 
         public void createNavBar()
         {
@@ -94,7 +87,6 @@ namespace SuperMundoHiperMegaRed
             string name = Session["name"].ToString() + " " + Session["lastname"].ToString();
             nameuser.InnerHtml = name;
         }
-
         void nameuser_Click(Object sender, EventArgs e)
         {
             Session.Abandon();

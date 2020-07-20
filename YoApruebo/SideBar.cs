@@ -21,7 +21,6 @@ namespace SuperMundoHiperMegaRed
 
             for (int i = 0; i < permits.Length; i++)
                 category[i] = new Categories(permits[i]);
-
         }
 
         public string getAllPermit()
@@ -50,7 +49,9 @@ namespace SuperMundoHiperMegaRed
 
     public class Categories
     {
+
         private string namemenu;
+        private string idcategory;
         private string[] namesubmenu;
         private string[] link;
 
@@ -59,6 +60,7 @@ namespace SuperMundoHiperMegaRed
             int k = permits.IndexOf('.');
             string idnamemenu = permits.Substring(0, k);
             namemenu = getNameByIdFromDB(idnamemenu);
+            idcategory = namemenu.ToString().Replace(" ", string.Empty) + "collapse";
 
             string[] idnamesubmenu = permits.Split(',');
             namesubmenu = new string[idnamesubmenu.Length];
@@ -101,5 +103,10 @@ namespace SuperMundoHiperMegaRed
             return link;
         }
 
+        public string getIdCategory()
+        {
+            return idcategory;
+        }
+        }
     }
 }
