@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Web;
+﻿using System.Data;
 
 namespace YoApruebo.BLL
 {
@@ -21,7 +17,8 @@ namespace YoApruebo.BLL
         {
             DataTable dt = bd.getDataTable(query, bd.getConexion("SQL"));
             
-            if (dt.Columns.Count > 0)
+            //comprueba si la query obtuvo resultados.
+            if (dt.Rows.Count > 0)
             {
                 if (password.Equals(dt.Rows[0][1].ToString()))
                     return true;

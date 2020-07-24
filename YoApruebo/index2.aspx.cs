@@ -10,10 +10,6 @@ namespace SuperMundoHiperMegaRed
     public partial class index2 : System.Web.UI.Page
     {
         YoApruebo.BLL.Login login = new YoApruebo.BLL.Login();
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
 
         protected void btnentrar_Click1(object sender, EventArgs e)
         {
@@ -42,8 +38,6 @@ namespace SuperMundoHiperMegaRed
             }
         }
   
-
-
         private bool getAuthentication(string usuario, string password)
         {
             string query = "SELECT USUARIO, PASSWORD FROM USUARIO WHERE USUARIO ='" + usuario + "'";

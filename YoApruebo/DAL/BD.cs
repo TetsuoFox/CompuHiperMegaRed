@@ -43,7 +43,7 @@ namespace YoApruebo.DAL
             }
             catch (Exception ex)
             {
-                //ALGO
+                Console.WriteLine(ex);
             }
             /*retornamos el DT*/
             return dt;

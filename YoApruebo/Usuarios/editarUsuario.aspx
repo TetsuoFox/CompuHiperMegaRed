@@ -55,13 +55,13 @@
                    <div class="modal-content">
                        <div class="modal-header">
                          <h4 class="modal-title"><asp:Label ID="lblModalTitle" runat="server" Text=""></asp:Label></h4>
-                       </div>
+                        </div>
                        <div class="modal-body">
                        
                            
-                          <div class="input-group lg mb-4">
-                        <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon1">Rut     </span>
+                        <div class="input-group lg mb-4">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Rut     </span>
                         </div>
                             <asp:Label ID="Label3" runat="server" Text="" Hidden="true" ></asp:Label>
                         <asp:TextBox class="form-control" ID="txtRutC" runat="server" placeholder="Rut - DV" AutoPostBack="true" Enabled="false"></asp:TextBox>

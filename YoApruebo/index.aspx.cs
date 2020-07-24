@@ -1,37 +1,40 @@
 ﻿using SuperMundoHiperMegaRed;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using YoApruebo.SC;
 
 namespace YoApruebo
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        BLL.Login login = new BLL.Login();
-
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Label1.Text = "";
+        }
         protected void btnentrar_Click1(object sender, EventArgs e)
         {
+            BLL.Login login = new BLL.Login();
+
             if (login.authenticaticateUser(textUser.Text, textPassword.Text))
             {
-                Persona persona = new Persona(textUser.Text);
-
-                Session["name"] = persona.getName();
-                Session["lastname"] = persona.getLastname();
-                Session["cargo"] = persona.getCargo();
-                Session["direccion"] = persona.getDireccion();
-                Session["telefono"] = persona.getTelefono();
-
+                SessionStart();
                 Response.Redirect("home");
             }
             else
             {
-                Label1.Text = "La contraseña o la clave no son correctas";
+                Label1.Text = "El nombre de usuario o la contraseña no son correctos";
             }
+        }
+
+        private void SessionStart()
+        {
+            Persona persona = new Persona(textUser.Text);
+
+            Session["nickname"] = textUser.Text;
+
+            Session["name"] = persona.name;
+            Session["lastname"] = persona.lastname;
+            Session["cargo"] = persona.cargo;
+            Session["direccion"] = persona.direccion;
+            Session["telefono"] = persona.telefono;
         }
     }
 }

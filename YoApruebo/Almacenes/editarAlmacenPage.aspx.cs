@@ -13,10 +13,9 @@ namespace SuperMundoHiperMegaRed.Almacenes
 {
     public partial class editarAlmacenPage : System.Web.UI.Page
     {
-       List<almacen> almacenes = new List<almacen>();
+        List<almacen> almacenes = new List<almacen>();
         Ingreso insertarBD = new Ingreso();
-   public string idAlmacenActualizar;
-
+        public string idAlmacenActualizar;
 
         protected void Page_Load(object sender, EventArgs e)
         { //---
@@ -31,16 +30,13 @@ namespace SuperMundoHiperMegaRed.Almacenes
                 foreach (almacen al in lista)
                 {
                     ListItem li = new ListItem(al.nombreAlmacen, al.id.ToString());
-                    String esActivo = al.esActivo ? "Si" : "No";
+                    string esActivo = al.esActivo ? "Si" : "No";
                     dt.Rows.Add(al.id, al.nombreAlmacen, esActivo);
                 }
                 GridView1.DataSource = dt;
                 GridView1.DataBind();
 
                 GridView1.HeaderRow.CssClass = "thead-dark";
-         
-
-      
 
             }
         }
@@ -130,7 +126,6 @@ namespace SuperMundoHiperMegaRed.Almacenes
                 {
                     return al;
                 }
-
             }
             return null;
         }
@@ -142,7 +137,6 @@ namespace SuperMundoHiperMegaRed.Almacenes
             insertarBD.ingresar(query);
             ScriptManager.RegisterStartupScript(Page, Page.GetType(), "#myModal", "$('body').removeClass('modal-open');$('.modal-backdrop').remove();", true);
             Response.Redirect(Request.RawUrl);
-
         }
     }
 }

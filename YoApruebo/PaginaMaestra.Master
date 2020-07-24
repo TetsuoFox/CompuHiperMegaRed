@@ -26,8 +26,8 @@
             font-size: 15px;
         }
         @font-face {
-            font-family: 'Robot';
-            src: url('/font/ROBO.ttf');
+            font-family: 'Demonized';
+            src: url('/font/Demonized.ttf');
         }
         .sidebarcollapse {
             height: 100%;
@@ -55,6 +55,7 @@
                 margin-top: 0px;
             }
         }
+        
     </style>
 
 </head>
@@ -79,27 +80,26 @@
                 <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
                 <asp:ScriptReference Name="WebFormsBundle" />
+
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
 
         <%--Navbar--%>
-
-        <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top" style="width: 100%">
-             <a  id="nombre_empresa" runat="server" class="navbar-brand" href="#" style=""></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" style="width: 100%; height: 56px;">
+            <a class="navbar-brand" id="nombrempresa" runat="server" style="font-family:'Demonized' ; ">Compumundo</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar7">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a id="opcion_uno" runat="server" class="nav-link" href="#"></a>
+            <div class="navbar-collapse collapse justify-content-stretch" id="navbar7">
+                <ul class="navbar-nav ml-auto" aria-busy="False">
+                    <li class="nav-item">
+                        <a class="nav-link disabled" id="hiuser" runat="server" style="color:darkgray; margin-top:auto;"></a>
                     </li>
                     <li class="nav-item">
-                        <a id="opcion_dos" runat="server" class="nav-link"></a>
+                        <asp:Button id="btncerrarsesion" runat="server" Text="Cerrar Sesión" OnClick="btncerrarsesion_Click" Style="background: none;color:aliceblue;border: none;font: 'Roboto';cursor: pointer;outline: inherit;font-weight:500;padding-top:7px;font-size: 15px;"/>
                     </li>
                 </ul>
-                <button id="nameuser" runat="server" class="btn btn-outline-success my-2 my-sm-0" OnClick="nameuser_Click"></button>
             </div>
         </nav>
 

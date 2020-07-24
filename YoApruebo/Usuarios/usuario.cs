@@ -8,7 +8,7 @@ namespace SuperMundoHiperMegaRed.Usuarios
     public class usuario
     {
          
-      public String id;
+        public String id;
         public String perfilUsuario;
         public String usuarioUsuario;
         public String nombreUsuario;

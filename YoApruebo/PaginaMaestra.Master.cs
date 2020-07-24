@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Security.Cryptography.X509Certificates;
-using System.Web;
-using System.Web.UI;
+﻿using SuperMundoHiperMegaRed.BLL;
+using System;
 using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using YoApruebo.DAL;
 
 namespace SuperMundoHiperMegaRed
 {
@@ -16,47 +8,56 @@ namespace SuperMundoHiperMegaRed
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["name"].Equals(""))
+            if (Session["nickname"]==null)
                 Response.Redirect("~/index.aspx");
 
             createSideBar(Session["nickname"].ToString());
             createNavBar();
+
+            if (IsPostBack)
+            {
+              
+            }
         }
         private void createSideBar(string nickname)
         {
-            string permitslist = BLL.UserBD.getListPermits(nickname);
+            UserDB userbd = new UserDB();
+            string permitslist = userbd.getListPermits(nickname);
+
             SideBar sidebar = new SideBar(permitslist);
             createHtmlSideBar(sidebar);
         }
-
-        public void createHtmlSideBar(SideBar sidebar)
+        private void createNavBar()
         {
-
+            string nameuser = Session["name"].ToString() + " " + Session["lastname"].ToString();
+            hiuser.InnerHtml = "Hi " + nameuser;
+            nombrempresa.InnerHtml = "CompuMundo";
+            //btncerrarsesion.InnerHtml = "Cerrar sesión";
+        }
+        private void createHtmlSideBar(SideBar sidebar)
+        {
             for (int i = 0; i < sidebar.category.Length; i++)
             {
                 string categoryname = sidebar.category[i].getNameCategory();
-                string idcategory = sidebar.category[i].getIdCategory();
+                string categoryid = sidebar.category[i].getIdCategory();
                 string[] namesubmenu = sidebar.category[i].getSubNameCategory();
                 string[] linksubmenu = sidebar.category[i].getLinkCategory();
 
-                HtmlGenericControl etiquetamenu = createCategory(categoryname, idcategory);
-                sidebarcontainer.Controls.Add(etiquetamenu);
+                sidebarcontainer.Controls.Add(createHtmlCategory(categoryname, categoryid));
 
-                HtmlGenericControl divsubmenuscontainer = createDivSubmenusContainer(idcategory);
+                HtmlGenericControl divsubmenuscontainer = createDivSubmenusContainer(categoryid);
                 sidebarcontainer.Controls.Add(divsubmenuscontainer);
 
                 for (int j = 0; j < namesubmenu.Length; j++)
                 {
-                    HtmlGenericControl eqiquetasubmenu = createSubMenu(namesubmenu[j], linksubmenu[j]);
+                    HtmlGenericControl eqiquetasubmenu = createHtmlSubMenu(namesubmenu[j], linksubmenu[j]);
                     divsubmenuscontainer.Controls.Add(eqiquetasubmenu);
                 }
             }
         }
-
-        private HtmlGenericControl createCategory(string namemenu, string idcategory)
+        private HtmlGenericControl createHtmlCategory(string namemenu, string idcategory)
         {
             HtmlGenericControl newDiv = new HtmlGenericControl("a");
-            newDiv.ID = "menu";
             newDiv.Attributes.Add("class", "list-group-item active");
             newDiv.Attributes.Add("href", ("#" + idcategory));
             newDiv.Attributes.Add(" data-toggle", "collapse");
@@ -70,7 +71,7 @@ namespace SuperMundoHiperMegaRed
             divSubMenusContainer.Attributes.Add("class", "collapse");
             return divSubMenusContainer;
         }
-        private HtmlGenericControl createSubMenu(string name, string link)
+        private HtmlGenericControl createHtmlSubMenu(string name, string link)
         {
             HtmlGenericControl subDiv = new HtmlGenericControl("a");
             subDiv.Attributes.Add("class", "list-group-item list-group-item-action");
@@ -79,15 +80,7 @@ namespace SuperMundoHiperMegaRed
             return subDiv;
         }
 
-        public void createNavBar()
-        {
-            nombre_empresa.InnerHtml = "CompuMundo";
-            opcion_uno.InnerHtml = "Opcion1";
-            opcion_dos.InnerHtml = "Opcion2";
-            string name = Session["name"].ToString() + " " + Session["lastname"].ToString();
-            nameuser.InnerHtml = name;
-        }
-        void nameuser_Click(Object sender, EventArgs e)
+        protected void btncerrarsesion_Click(object sender, EventArgs e)
         {
             Session.Abandon();
             Response.Redirect("~/index.aspx");

@@ -1,14 +1,8 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Web;
-using YoApruebo.DAL;
+﻿using YoApruebo.DAL;
 
 namespace SuperMundoHiperMegaRed.BLL
 {
-    public class UserBD
+    public class UserDB
     {
         BD bd = new BD();
         public string getValueFromBD(string columnname, string nickname)
@@ -19,9 +13,8 @@ namespace SuperMundoHiperMegaRed.BLL
         }
         public string getListPermits(string nickname)
         {
-            BD data_base = new BD();
             string query = "SELECT[PERMISOS] FROM[dbo].[PERFIL] INNER JOIN[dbo].[USUARIO] ON[dbo].[USUARIO].[ID_PERFIL] = [dbo].[PERFIL].[ID_PERFIL] WHERE[dbo].[USUARIO].[USUARIO] = '" + nickname + "';";
-            string permits = data_base.getResultQueryLikeString(query);
+            string permits = bd.getResultQueryLikeString(query);
             return permits;
         }
     }
